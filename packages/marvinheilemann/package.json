@@ -1,0 +1,13 @@
+{
+  "name": "marvinheilemann",
+  "version": "2.0.0",
+  "description": "This package `marvinheilemann` tells something about me.",
+  "author": "Marvin Heilemann",
+  "bin": "bin/cli.js",
+  "scripts": {
+    "cli": "node bin/cli.js"
+  },
+  "dependencies": {
+    "muuvmuuv": "workspace:^2.0.0"
+  }
+}
