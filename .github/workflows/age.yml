@@ -1,4 +1,4 @@
-name: Increase my age in the README file every year on my birthday
+name: Increase my age
 
 on:
   schedule:
