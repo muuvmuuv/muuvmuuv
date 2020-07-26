@@ -1,0 +1,20 @@
+name: Increase my age in the README file every year on my birthday
+
+on:
+  schedule:
+    - cron: "0 1 13 6 *"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - run: node packages/age
