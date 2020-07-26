@@ -1,6 +1,6 @@
 {
   "name": "node-serverless-visits",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Simple visit counter for your Markdown file",
   "license": "MIT",
   "author": "Marvin Heilemann",

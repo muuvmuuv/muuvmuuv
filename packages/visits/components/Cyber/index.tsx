@@ -25,7 +25,6 @@ const Counter: FunctionComponent<CounterProps> = ({ totalVisits, numVisitors }) 
       title="Left shows total visits and right shows unique visitors"
       aria-label={`This page has ${totalVisits} total visits and ${numVisitors} unique visitors`}
       xmlns="http://www.w3.org/2000/svg"
-      // xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox={`0 0 ${width} ${baseHeight}`}
       height="40"
       fill="none"

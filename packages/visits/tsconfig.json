@@ -1,5 +1,7 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
+    "outDir": "./tmp",
     "sourceMap": true,
     "module": "commonjs",
     "target": "es5",
@@ -10,6 +12,7 @@
   },
   "include": [
     "./api/**/*.ts",
-    "./components/**/*.tsx"
+    "./components/**/*.tsx",
+    "./db/**/*.ts"
   ]
 }
