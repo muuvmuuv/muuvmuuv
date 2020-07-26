@@ -1,6 +1,5 @@
 export interface CounterProps {
-  totalVisits: number
-  numVisitors: number
+  pageviews: number
 }
 
 export interface BlockProps {

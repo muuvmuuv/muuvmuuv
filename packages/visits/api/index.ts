@@ -1,79 +1,65 @@
 import { NowRequest, NowResponse } from '@vercel/node'
 import render from 'preact-render-to-string'
-import { createHash } from 'crypto'
+import http from 'got'
 
-import { getDatabase } from '../db'
 import ClassicTheme from '../components/Classic'
 import CyberTheme from '../components/Cyber'
-
-const db = getDatabase()
-
-const ref = db.ref('visitors')
-
-interface Visitor {
-  visits: number
-  last_visit: Date
-}
 
 const themes = {
   classic: ClassicTheme,
   cyber: CyberTheme,
 }
 
-async function updateVisitor(req: NowRequest) {
-  // const ip = req.headers['x-real-ip']
-  const userAgent = req.headers['user-agent']
-  const hashString = `${userAgent}`
+// https://docs.simpleanalytics.com/server-side-tracking
 
-  let user = 'undefined'
-
-  if (userAgent) {
-    user = createHash('sha1').update(hashString).digest('hex')
-  }
-
-  const visitsSnapshot = await ref.child(`${user}/visits`).once('value')
-  const visits = visitsSnapshot.val()
-
-  await ref.update({
-    [`${user}`]: <Visitor>{
-      visits: visits ? Number(visits) + 1 : 1,
-      last_visit: new Date(),
+function sendImageView(request: NowRequest) {
+  return http.post('https://queue.simpleanalyticscdn.com/post', {
+    json: {
+      url: 'https://visits.github.marvin.digital/',
+      ua: request.headers['user-agent'],
+      // unique: true,
     },
   })
 }
 
-export default async (req: NowRequest, res: NowResponse) => {
-  const debug = 'debug' in req.query
+interface ApiResponseData {
+  pageviews: number
+}
 
-  res.setHeader('Content-Type', 'image/svg+xml')
-  res.setHeader('Cache-Control', 'public, max-age=0, stale-while-revalidate')
+async function getAnalytics(): Promise<ApiResponseData> {
+  const response = await http.get<ApiResponseData>(
+    'https://simpleanalytics.com/visits.github.marvin.digital.json',
+    {
+      responseType: 'json',
+    }
+  )
+  return response.body
+}
 
-  let theme = (req.query.theme as string) || 'classic'
+export default async (request: NowRequest, response: NowResponse) => {
+  const debug = 'debug' in request.query
+
+  response.setHeader('Content-Type', 'image/svg+xml')
+  response.setHeader('Cache-Control', 'public, max-age=0, stale-while-revalidate')
+
+  let theme = (request.query.theme as string) || 'classic'
 
   if (!Object.keys(themes).includes(theme)) {
     theme = 'classic'
   }
 
-  let totalVisits = 0
-  let numVisitors = 0
+  let pageviews = 0
 
   if (debug) {
-    totalVisits = 12345
-    numVisitors = 67890
+    pageviews = 1234567890
   } else {
-    await updateVisitor(req)
+    await sendImageView(request)
 
-    const snapshot = await ref.once('value')
-    const visitors = snapshot.val() as Visitor[]
-    numVisitors = snapshot.numChildren()
-
-    totalVisits = 0
-    Object.values(visitors).forEach((visitor) => {
-      totalVisits += visitor.visits
-    })
+    const analytics = await getAnalytics()
+    pageviews = analytics.pageviews
   }
 
-  const html = render(themes[theme]({ totalVisits, numVisitors }))
+  const html = render(themes[theme]({ pageviews }))
 
-  return res.status(200).send(html)
+  return response.status(200).send(html)
 }
