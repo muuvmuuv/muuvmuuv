@@ -18,3 +18,15 @@ Choose a theme with `?theme=classic`
 ## Debug
 
 Debug the SVG with `?debug` to not send anything to simpleanalytics.
+
+## Thanks to...
+
+- [Webshocker](https://dribbble.com/shots/3505409-Counter) and his amazing work on
+  Dribbble with the `cyber` theme.
+- natemoo and his
+  [now-playing](https://github.com/natemoo-re/natemoo-re/blob/master/api/now-playing.ts)
+  SVG where I got the logic for Vercel serverless functions with react
+- leereilly for his
+  [dev.to post](https://dev.to/github/10-standout-github-profile-readmes-h2o) inspiring me
+  to do this stuff
+- [sagar-viradiya](https://github.com/sagar-viradiya/sagar-viradiya) with the counter idea
