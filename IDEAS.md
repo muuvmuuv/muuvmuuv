@@ -7,3 +7,8 @@
       amount of px to look like it is flying of the border
 - [ ] Now playing Apple Music/Spotify
 - [x] hit counter
+- [x] add social media
+- [ ] monorepo features publish all packages to NPM and GitHub registry
+  - marvin
+  - marvinheilemann
+  - muuvmuuv
