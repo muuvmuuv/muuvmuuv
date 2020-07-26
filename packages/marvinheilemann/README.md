@@ -6,6 +6,10 @@ computers and especially for the internet.
 
 > Read more about me on [my website](https://marvin.digital/about).
 
+You can get in touch with me [on Twitter](https://twitter.com/muuvmuuv) and if you wanna
+play some [League of Legends](https://leagueoflegends.com/) with me add
+[my tag `muuvmuuv`](https://lolprofile.net/summoner/euw/muuvmuuv).
+
 ![Page visits and unique visitors](https://visits.github.marvin.digital/image.svg?theme=cyber)
 
 > This is an copy from the original file located here: xxx
