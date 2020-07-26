@@ -2,14 +2,14 @@
   "version": 2,
   "routes": [
     {
-      "src": "/api.svg",
+      "src": "/image.svg",
       "dest": "/api"
     },
     {
       "src": "/(.*)",
       "status": 301,
       "headers": {
-        "Location": "/api.svg"
+        "Location": "/image.svg"
       }
     }
   ]

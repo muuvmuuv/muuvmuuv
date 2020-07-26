@@ -6,6 +6,6 @@ computers and especially for the internet.
 
 > Read more about me on [my website](https://marvin.digital/about).
 
-![Page visits and unique visitors](https://visits.muuvmuuv.vercel.app/api.svg?theme=cyber)
+![Page visits and unique visitors](https://visits.github.marvin.digital/image.svg?theme=cyber)
 
 > This is an copy from the original file located here: xxx
