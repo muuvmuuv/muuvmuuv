@@ -10,6 +10,6 @@ You can get in touch with me [on Twitter](https://twitter.com/muuvmuuv) and if y
 play some [League of Legends](https://leagueoflegends.com/) with me add
 [my tag `muuvmuuv`](https://lolprofile.net/summoner/euw/muuvmuuv).
 
-![Page visits and unique visitors](https://visits.github.marvin.digital/image.svg?theme=cyber)
+[![Page visits and unique visitors](https://visits.github.marvin.digital/image.svg?theme=cyber)](https://simpleanalytics.com/visits.github.marvin.digital)
 
 > This is an copy from the original file located here: xxx
