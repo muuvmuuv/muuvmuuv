@@ -12,3 +12,4 @@
   - marvin
   - marvinheilemann
   - muuvmuuv
+- [ ] use verb for readme generation

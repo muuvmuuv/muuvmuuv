@@ -1,4 +1,7 @@
 {
+  "files.associations": {
+    "*.json": "jsonc"
+  },
   "cSpell.words": [
     "muuvmuuv",
     "pnpm"

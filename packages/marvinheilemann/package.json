@@ -5,7 +5,7 @@
   "author": "Marvin Heilemann",
   "bin": "bin/cli.js",
   "scripts": {
-    "cli": "node bin/cli.js"
+    "start": "node bin/cli.js"
   },
   "dependencies": {
     "muuvmuuv": "workspace:^2.0.0"

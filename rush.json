@@ -1,0 +1,44 @@
+// https://rushjs.io/pages/configs/rush_json/
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.30.1",
+  "pnpmVersion": "4.14.4",
+  "pnpmOptions": {
+    "strictPeerDependencies": true
+    // "useWorkspaces": true // Expiremental
+  },
+  "nodeSupportedVersionRange": ">=12.13.0 <13.0.0",
+  "gitPolicy": {
+    "versionBumpCommitMessage": "chore: applying package updates [skip-ci]"
+  },
+  "approvedPackagesPolicy": {
+    "reviewCategories": [
+      "production",
+      "tools",
+      "prototypes"
+    ]
+  },
+  "projects": [
+    {
+      "packageName": "age",
+      "projectFolder": "tools/age",
+      "reviewCategory": "tools"
+    },
+    {
+      "packageName": "readme",
+      "projectFolder": "tools/readme",
+      "reviewCategory": "tools"
+    },
+    {
+      "packageName": "node-serverless-visits",
+      "projectFolder": "packages/visits",
+      "reviewCategory": "prototypes"
+    },
+    {
+      "packageName": "muuvmuuv",
+      "projectFolder": "packages/muuvmuuv",
+      "reviewCategory": "production",
+      "shouldPublish": true
+    }
+  ]
+}

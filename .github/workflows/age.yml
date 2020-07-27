@@ -17,8 +17,13 @@ jobs:
         with:
           node-version: 14.x
 
-      - run: node packages/age
-      # - run: node packages/age # run readme build
+      # Install rush
+      - name: Install rush
+        run: node common/scripts/install-run-rush.js install
+      - run: rush install --no-link
+      - run: rush link
+
+      - run: rush build --verbose -t age -t readme
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v4 # You can change this to use a specific version
