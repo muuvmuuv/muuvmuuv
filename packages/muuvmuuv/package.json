@@ -1,10 +1,15 @@
 {
   "name": "muuvmuuv",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "This package `muuvmuuv` tells something about me.",
   "author": "Marvin Heilemann",
   "bin": "bin/cli.js",
   "scripts": {
     "start": "node bin/cli.js"
-  }
+  },
+  "files": [
+    "README.md",
+    "bin/cli.js",
+    "index.js"
+  ]
 }
