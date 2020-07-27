@@ -11,9 +11,3 @@ end_of_line = lf
 
 [Makefile]
 indent_style = tab
-
-[*.json]
-insert_final_newline = false
-
-[*.{yml,yaml}]
-insert_final_newline = false
