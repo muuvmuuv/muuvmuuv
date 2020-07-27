@@ -13,3 +13,4 @@
   - marvinheilemann
   - muuvmuuv
 - [ ] use verb for readme generation
+- [ ] add rush change -v in CI build
