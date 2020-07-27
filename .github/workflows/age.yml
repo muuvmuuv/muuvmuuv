@@ -3,9 +3,6 @@ name: Increase my age
 on:
   schedule:
     - cron: "0 1 13 6 *"
-  push:
-    branches:
-      - master
 
 jobs:
   build:
