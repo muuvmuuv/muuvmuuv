@@ -11,6 +11,9 @@
   "gitPolicy": {
     "versionBumpCommitMessage": "chore: applying package updates [skip-ci]"
   },
+  "repository": {
+    "url": "git@github.com:muuvmuuv/muuvmuuv.git"
+  },
   "approvedPackagesPolicy": {
     "reviewCategories": [
       "production",
