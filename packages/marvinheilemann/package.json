@@ -1,6 +1,6 @@
 {
   "name": "marvinheilemann",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "This package `marvinheilemann` tells something about me.",
   "author": "Marvin Heilemann",
   "bin": "bin/cli.js",
@@ -8,6 +8,10 @@
     "start": "node bin/cli.js"
   },
   "dependencies": {
-    "muuvmuuv": "workspace:^2.0.0"
-  }
+    "muuvmuuv": "workspace:*"
+  },
+  "files": [
+    "README.md",
+    "bin/cli.js"
+  ]
 }

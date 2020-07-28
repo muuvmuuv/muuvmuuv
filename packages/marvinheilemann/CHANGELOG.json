@@ -1,0 +1,22 @@
+{
+  "name": "marvinheilemann",
+  "entries": [
+    {
+      "version": "2.0.1",
+      "tag": "marvinheilemann_v2.0.1",
+      "date": "Mon, 27 Jul 2020 09:48:19 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "feat: applying final new line to json and adding missing packages"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"muuvmuuv\" to `2.1.1`"
+          }
+        ]
+      }
+    }
+  ]
+}

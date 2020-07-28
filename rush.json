@@ -4,8 +4,8 @@
   "rushVersion": "5.30.1",
   "pnpmVersion": "4.14.4",
   "pnpmOptions": {
-    "strictPeerDependencies": true
-    // "useWorkspaces": true // Expiremental
+    "strictPeerDependencies": true,
+    "useWorkspaces": true
   },
   "nodeSupportedVersionRange": ">=12.13.0 <13.0.0",
   "gitPolicy": {
@@ -33,6 +33,11 @@
       "reviewCategory": "tools"
     },
     {
+      "packageName": "node-serverless-now-playing",
+      "projectFolder": "packages/now-playing",
+      "reviewCategory": "prototypes"
+    },
+    {
       "packageName": "node-serverless-visits",
       "projectFolder": "packages/visits",
       "reviewCategory": "prototypes"
@@ -42,6 +47,17 @@
       "projectFolder": "packages/muuvmuuv",
       "reviewCategory": "production",
       "shouldPublish": true
+    },
+    {
+      "packageName": "marvinheilemann",
+      "projectFolder": "packages/marvinheilemann",
+      "reviewCategory": "production",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "marvin",
+      "projectFolder": "packages/marvin",
+      "reviewCategory": "prototypes"
     }
   ]
 }
