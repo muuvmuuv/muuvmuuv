@@ -7,6 +7,10 @@
       "allowedCategories": [ "prototypes" ]
     },
     {
+      "name": "dayjs",
+      "allowedCategories": [ "prototypes" ]
+    },
+    {
       "name": "got",
       "allowedCategories": [ "prototypes" ]
     },

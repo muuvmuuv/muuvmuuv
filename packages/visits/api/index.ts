@@ -1,59 +1,69 @@
-import { NowRequest, NowResponse } from '@vercel/node'
-import render from 'preact-render-to-string'
-import http from 'got'
+import { VercelRequest, VercelResponse } from "@vercel/node"
+import render from "preact-render-to-string"
+import http from "got"
 
-import ClassicTheme from '../components/Classic'
-import CyberTheme from '../components/Cyber'
+import { SAJsonResponse, SAField } from "./SimpleAnalytics"
+
+import { Flip } from "../components/Flip"
+import { Classic } from "../components/Classic"
+import { Cyber } from "../components/Cyber"
 
 const themes = {
-  classic: ClassicTheme,
-  cyber: CyberTheme,
+  classic: Classic,
+  flip: Flip,
+  cyber: Cyber,
 }
 
-// https://docs.simpleanalytics.com/server-side-tracking
-
-function sendImageView(request: NowRequest) {
-  return http.post('https://queue.simpleanalyticscdn.com/post', {
+/**
+ * Send view to SimpleAnalytics.
+ *
+ * @see https://docs.simpleanalytics.com/server-side-tracking
+ */
+function sendView(request: VercelRequest) {
+  return http.post("https://queue.simpleanalyticscdn.com/post", {
     json: {
-      url: 'https://visits.github.marvin.digital/',
-      ua: request.headers['user-agent'],
-      // unique: true,
+      url: "https://visits.github.marvin.digital/",
+      ua: request.headers["user-agent"],
+      referrer: request.headers["referer"] || "direct",
     },
   })
 }
 
-interface ApiResponseData {
-  pageviews: number
-}
-
-async function getAnalytics(): Promise<ApiResponseData> {
-  const response = await http.get<ApiResponseData>(
-    'https://simpleanalytics.com/visits.github.marvin.digital.json',
+/**
+ * Get current analytics stats from SimpleAnalytics.
+ *
+ * @see https://docs.simpleanalytics.com/api/stats#query-parameters
+ */
+async function getAnalytics(): Promise<SAJsonResponse> {
+  const fields = [SAField.PAGEVIEWS]
+  const baseUri = "https://simpleanalytics.com/visits.github.marvin.digital.json"
+  const response = await http.get<SAJsonResponse>(
+    baseUri + "?version=5&info=false&fields=" + fields.join(","),
     {
-      responseType: 'json',
+      responseType: "json",
     }
   )
   return response.body
 }
 
-export default async (request: NowRequest, response: NowResponse) => {
-  const debug = 'debug' in request.query
+/**
+ * Render and return SVG counter.
+ */
+export default async (request: VercelRequest, response: VercelResponse) => {
+  const debug = "debug" in request.query
 
-  response.setHeader('Content-Type', 'image/svg+xml')
-  response.setHeader('Cache-Control', 'public, max-age=0, stale-while-revalidate')
-
-  let theme = (request.query.theme as string) || 'classic'
-
-  if (!Object.keys(themes).includes(theme)) {
-    theme = 'classic'
+  let theme = "flip"
+  if ("theme" in request.query) {
+    theme = String(request.query.theme)
   }
 
-  let pageviews = 0
+  response.setHeader("Content-Type", "image/svg+xml")
+  response.setHeader("Cache-Control", "public, max-age=0, stale-while-revalidate")
 
-  if (debug) {
-    pageviews = 1234567890
-  } else {
-    await sendImageView(request)
+  let pageviews = 1234567890
+
+  if (!debug) {
+    await sendView(request)
 
     const analytics = await getAnalytics()
     pageviews = analytics.pageviews

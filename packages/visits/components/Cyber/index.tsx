@@ -1,11 +1,11 @@
-import { h, FunctionComponent } from 'preact'
+import { h, FunctionComponent } from "preact"
 
-import { CounterProps } from '../interface'
-import { numberToArray } from '../utils'
-import { Block } from './Block'
-import { Defs } from './Defs'
+import { CounterProps } from "../interface"
+import { numberToArray } from "../utils"
+import { Block } from "./Block"
+import { Defs } from "./Defs"
 
-const Counter: FunctionComponent<CounterProps> = ({ pageviews }) => {
+export const Cyber: FunctionComponent<CounterProps> = ({ pageviews }) => {
   const pageviewsNumbers = numberToArray(pageviews)
 
   const blockOffset = 230
@@ -34,5 +34,3 @@ const Counter: FunctionComponent<CounterProps> = ({ pageviews }) => {
     </svg>
   )
 }
-
-export default Counter

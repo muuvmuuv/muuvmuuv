@@ -1,8 +1,9 @@
-import { h, FunctionComponent } from 'preact'
+import { h, FunctionComponent } from "preact"
 
-import { BlockProps } from '../interface'
-
-export const Block: FunctionComponent<BlockProps> = ({ children, index, offset = 0 }) => {
+export const Block: FunctionComponent<{
+  index: number
+  offset?: number
+}> = ({ children, index, offset = 0 }) => {
   return (
     <g transform={`translate(${offset * index} 0)`}>
       <g filter="url(#shadow)">

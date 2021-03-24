@@ -1,7 +1,6 @@
-import { h, FunctionComponent } from 'preact'
+import { h, FunctionComponent } from "preact"
 
-import { BlockProps } from '../interface'
-import * as coords from './coords.json'
+import * as coords from "./coords.json"
 
 // 0 = dark; 1 = color
 const numbers = {
@@ -17,7 +16,10 @@ const numbers = {
   9: [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0],
 }
 
-export const Block: FunctionComponent<BlockProps> = ({ children, index, offset = 0 }) => {
+export const Block: FunctionComponent<{
+  index: number
+  offset?: number
+}> = ({ children, index, offset = 0 }) => {
   const matrix = numbers[children.toString()]
 
   return (
@@ -28,7 +30,7 @@ export const Block: FunctionComponent<BlockProps> = ({ children, index, offset =
 
       {matrix.map((t: boolean, i: number) => {
         const { x, y } = coords[i + 1]
-        const theme = t ? 'gradient-color' : 'gradient-dark'
+        const theme = t ? "gradient-color" : "gradient-dark"
         return <rect fill={`url(#${theme})`} height="68" width="67" x={x} y={y} rx="2" />
       })}
 

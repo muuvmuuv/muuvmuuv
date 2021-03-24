@@ -1,13 +1,13 @@
 // https://rushjs.io/pages/configs/rush_json/
 {
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
-  "rushVersion": "5.30.1",
-  "pnpmVersion": "4.14.4",
+  "rushVersion": "5.42.3",
+  "pnpmVersion": "5.17.3",
   "pnpmOptions": {
     "strictPeerDependencies": true,
     "useWorkspaces": true
   },
-  "nodeSupportedVersionRange": ">=12.13.0 <13.0.0",
+  "nodeSupportedVersionRange": ">=14",
   "gitPolicy": {
     "versionBumpCommitMessage": "chore: applying package updates [skip-ci]"
   },
@@ -31,11 +31,6 @@
       "packageName": "readme",
       "projectFolder": "tools/readme",
       "reviewCategory": "tools"
-    },
-    {
-      "packageName": "node-serverless-now-playing",
-      "projectFolder": "packages/now-playing",
-      "reviewCategory": "prototypes"
     },
     {
       "packageName": "node-serverless-visits",

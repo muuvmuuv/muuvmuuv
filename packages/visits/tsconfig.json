@@ -12,7 +12,7 @@
   },
   "include": [
     "./api/**/*.ts",
-    "./components/**/*.tsx",
-    "./db/**/*.ts"
+    "./components/**/*.ts",
+    "./components/**/*.tsx"
   ]
 }

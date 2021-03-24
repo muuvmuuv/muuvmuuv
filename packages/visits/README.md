@@ -1,23 +1,24 @@
 # Simple visit counter for your Markdown file
 
-For storing the data I use [Simple Analytics](https://simpleanalytics.com/). No cookies
-required and DSGVO conform.
+For storing the data I use [SimpleAnalytics](https://simpleanalytics.com/). No cookies
+required and DSGVO ready.
 
-![Total page visits](https://visits.muuvmuuv.vercel.app/image.svg?theme=cyber)
-
-> Figma SVG file can be found here:
-> https://www.figma.com/file/h8US2k7HOOBNmIAxxXA54T/Counter?node-id=0%3A1
+> Figma SVG file can be found here: TODO
 
 ## Themes
 
-Choose a theme with `?theme=classic`
+Choose a theme with `?theme=<name>`
 
-- classic
-- cyber
+| Name    | Preview                                                                                 |
+| ------- | --------------------------------------------------------------------------------------- |
+| classic | ![classic theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=classic) |
+| cyber   | ![cyber theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=cyber)     |
+| flip    | ![flip theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=flip)       |
 
 ## Debug
 
-Debug the SVG with `?debug` to not send anything to simpleanalytics.
+Debug the SVG with `?debug=true` to not send anything to simpleanalytics and show a test
+number.
 
 ## Thanks to...
 
