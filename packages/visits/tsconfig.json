@@ -8,11 +8,13 @@
     "jsx": "react",
     "jsxFactory": "h",
     "downlevelIteration": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "lib": [
+      "ESNext"
+    ]
   },
   "include": [
-    "./api/**/*.ts",
-    "./components/**/*.ts",
-    "./components/**/*.tsx"
+    "./**/*.ts",
+    "./**/*.tsx"
   ]
 }

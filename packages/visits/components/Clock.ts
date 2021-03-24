@@ -1,4 +1,4 @@
-export interface CounterProps {
+export interface ClockProperties {
   pageviews: number
   height?: number
 }

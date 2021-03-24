@@ -1,11 +1,11 @@
 import { h, FunctionComponent } from "preact"
 
-import { CounterProps } from "../interface"
+import { ClockProperties } from "../Clock"
 import { numberToArray } from "../utils"
 import { Block } from "./Block"
 import { Defs } from "./Defs"
 
-export const Classic: FunctionComponent<CounterProps> = ({ pageviews }) => {
+export const Classic: FunctionComponent<ClockProperties> = ({ pageviews }) => {
   const pageviewsNumbers = numberToArray(pageviews)
 
   const blockOffset = 230

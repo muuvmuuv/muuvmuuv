@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from "preact"
 
-import { CounterProps } from "../interface"
+import { ClockProperties } from "../Clock"
 import { numberToArray } from "../utils"
 import { Block } from "./Block"
 import { Defs } from "./Defs"
@@ -10,7 +10,7 @@ import { Defs } from "./Defs"
  *
  * @see https://pqina.nl/flip/
  */
-export const Flip: FunctionComponent<CounterProps> = ({ height = 50, pageviews }) => {
+export const Flip: FunctionComponent<ClockProperties> = ({ height = 50, pageviews }) => {
   const pageviewsNumbers = numberToArray(pageviews)
 
   const blockOffset = 50

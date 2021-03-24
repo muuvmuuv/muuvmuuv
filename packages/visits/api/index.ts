@@ -2,7 +2,7 @@ import { VercelRequest, VercelResponse } from "@vercel/node"
 import render from "preact-render-to-string"
 import http from "got"
 
-import { SAJsonResponse, SAField } from "./SimpleAnalytics"
+import { SAJsonResponse, SAField } from "../components/SimpleAnalytics"
 
 import { Flip } from "../components/Flip"
 import { Classic } from "../components/Classic"
