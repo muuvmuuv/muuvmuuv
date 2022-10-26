@@ -1,6 +1,6 @@
 {
   "name": "marvinheilemann",
-  "version": "2.0.1",
+  "version": "2.2.0",
   "description": "This package `marvinheilemann` tells something about me.",
   "author": "Marvin Heilemann",
   "bin": "bin/cli.js",

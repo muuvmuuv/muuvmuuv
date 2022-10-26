@@ -1,6 +1,6 @@
 {
   "name": "node-serverless-visits",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Simple visit counter for your Markdown file with Vercel and SimpleAnalytics",
   "license": "MIT",
   "author": "Marvin Heilemann",
