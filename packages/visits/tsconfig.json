@@ -9,12 +9,7 @@
     "jsxFactory": "h",
     "downlevelIteration": true,
     "resolveJsonModule": true,
-    "lib": [
-      "ESNext"
-    ]
+    "lib": ["ESNext"]
   },
-  "include": [
-    "./**/*.ts",
-    "./**/*.tsx"
-  ]
+  "include": ["./**/*.ts", "./**/*.tsx"]
 }

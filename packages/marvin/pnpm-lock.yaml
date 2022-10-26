@@ -1,0 +1,7 @@
+lockfileVersion: 5.4
+
+specifiers:
+  muuvmuuv: workspace:*
+
+dependencies:
+  muuvmuuv: link:../muuvmuuv

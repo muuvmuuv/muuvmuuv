@@ -1,21 +1,18 @@
-name: Increase my age
+name: It's my birthday
 
 on:
   schedule:
-    - cron: "0 1 13 6 *"
+    - cron: "0 3 13 6 *"
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
+        uses: actions/setup-node@v3
 
       # Install rush
       - name: Install rush
@@ -23,11 +20,11 @@ jobs:
       - run: rush install --no-link
       - run: rush link
 
-      - run: rush build --verbose -t age -t readme
+      - run: cd tools/age && rushx start
+      - run: cd tools/readme && rushx start
 
       - name: Commit changes
-        uses: EndBug/add-and-commit@v4 # You can change this to use a specific version
+        uses: EndBug/add-and-commit@v9
         with:
-          message: 'chore: update age in readme'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          add: "README.md"
+          message: "chore: update age in readme"

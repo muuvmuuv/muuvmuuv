@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from "preact"
 
 import { ClockProperties } from "../Clock"
-import { numberToArray } from "../utils"
+import { numberToArray } from "../../helper/utils"
 import { Block } from "./Block"
 import { Defs } from "./Defs"
 

@@ -13,11 +13,12 @@ export enum SAField {
   BROWSER_NAMES = "browser_names",
   OS_NAMES = "os_names",
   DEVICE_TYPES = "device_types",
+  SECONDS_ON_PAGE = "seconds_on_page",
 }
 
-// TODO: types could be improved with fields and selection
 export interface SAJsonResponse {
   ok: boolean
+  docs: string
   info: boolean
   hostname: string
   url: string
@@ -26,7 +27,6 @@ export interface SAJsonResponse {
   end: string
   version: number
   timezone: string
+  pageviews: number
   generated_in_ms: number
-  // Fields
-  pageviews?: number
 }

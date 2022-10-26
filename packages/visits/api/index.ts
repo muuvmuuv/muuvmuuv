@@ -2,7 +2,7 @@ import { VercelRequest, VercelResponse } from "@vercel/node"
 import render from "preact-render-to-string"
 import http from "got"
 
-import { SAJsonResponse, SAField } from "../components/SimpleAnalytics"
+import { SAJsonResponse, SAField } from "../helper/SimpleAnalytics"
 
 import { Flip } from "../components/Flip"
 import { Classic } from "../components/Classic"
@@ -25,6 +25,7 @@ function sendView(request: VercelRequest) {
       url: "https://visits.github.marvin.digital/",
       ua: request.headers["user-agent"],
       referrer: request.headers["referer"] || "direct",
+      tz: process.env.TZ || "",
     },
   })
 }
@@ -39,9 +40,7 @@ async function getAnalytics(): Promise<SAJsonResponse> {
   const baseUri = "https://simpleanalytics.com/visits.github.marvin.digital.json"
   const response = await http.get<SAJsonResponse>(
     baseUri + "?version=5&info=false&fields=" + fields.join(","),
-    {
-      responseType: "json",
-    }
+    { responseType: "json" }
   )
   return response.body
 }

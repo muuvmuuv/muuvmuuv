@@ -1,13 +1,14 @@
-// https://rushjs.io/pages/configs/rush_json/
 {
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
-  "rushVersion": "5.42.3",
-  "pnpmVersion": "5.17.3",
+  "rushVersion": "5.76.1",
+  "pnpmVersion": "7.14.0",
   "pnpmOptions": {
     "strictPeerDependencies": true,
     "useWorkspaces": true
   },
-  "nodeSupportedVersionRange": ">=14",
+  "ensureConsistentVersions": true,
+  "suppressNodeLtsWarning": true,
+  "nodeSupportedVersionRange": ">=17",
   "gitPolicy": {
     "versionBumpCommitMessage": "chore: applying package updates [skip-ci]"
   },
@@ -15,11 +16,7 @@
     "url": "git@github.com:muuvmuuv/muuvmuuv.git"
   },
   "approvedPackagesPolicy": {
-    "reviewCategories": [
-      "production",
-      "tools",
-      "prototypes"
-    ]
+    "reviewCategories": ["production", "tools", "prototypes"]
   },
   "projects": [
     {

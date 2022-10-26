@@ -3,7 +3,8 @@
 For storing the data I use [SimpleAnalytics](https://simpleanalytics.com/). No cookies
 required and DSGVO ready.
 
-> Figma SVG file can be found here: https://www.figma.com/file/h8US2k7HOOBNmIAxxXA54T/SVG-Visits?node-id=6%3A3
+> Figma SVG file can be found here:
+> https://www.figma.com/file/h8US2k7HOOBNmIAxxXA54T/SVG-Visits?node-id=6%3A3
 
 ## Themes
 
