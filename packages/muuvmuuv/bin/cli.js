@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const muuvmuuv = require('../index')
+import muuvmuuv from "muuvmuuv"
 
 muuvmuuv.start()
 

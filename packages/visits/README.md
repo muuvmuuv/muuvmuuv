@@ -1,7 +1,7 @@
 # Simple visit counter for your Markdown file
 
 For storing the data I use [SimpleAnalytics](https://simpleanalytics.com/). No cookies
-required and DSGVO ready.
+required and DSGVO ready, so this can be implemented savely without any harm.
 
 > Figma SVG file can be found here:
 > https://www.figma.com/file/h8US2k7HOOBNmIAxxXA54T/SVG-Visits?node-id=6%3A3

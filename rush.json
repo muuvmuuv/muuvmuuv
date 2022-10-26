@@ -16,8 +16,10 @@
     "url": "git@github.com:muuvmuuv/muuvmuuv.git"
   },
   "approvedPackagesPolicy": {
-    "reviewCategories": ["production", "tools", "prototypes"]
+    "reviewCategories": ["production", "tools", "prototypes"],
+    "ignoredNpmScopes": ["@types"]
   },
+  "telemetryEnabled": false,
   "projects": [
     {
       "packageName": "age",
@@ -50,6 +52,7 @@
       "packageName": "marvin",
       "projectFolder": "packages/marvin",
       "reviewCategory": "prototypes"
+      // Not mine :()
     }
   ]
 }
