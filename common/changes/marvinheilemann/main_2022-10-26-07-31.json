@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "marvinheilemann",
+      "comment": "Package updates",
+      "type": "patch"
+    }
+  ],
+  "packageName": "marvinheilemann"
+}

@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "muuvmuuv",
+      "comment": "Package updates",
+      "type": "patch"
+    }
+  ],
+  "packageName": "muuvmuuv"
+}
