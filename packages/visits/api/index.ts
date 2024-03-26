@@ -1,32 +1,30 @@
 import { VercelRequest, VercelResponse } from "@vercel/node"
 import render from "preact-render-to-string"
-import http from "got"
+import fetch from "node-fetch"
 
 import { SAJsonResponse, SAField } from "../helper/SimpleAnalytics"
 
-import { Flip } from "../components/Flip"
 import { Classic } from "../components/Classic"
-import { Cyber } from "../components/Cyber"
-
-const themes = {
-  classic: Classic,
-  flip: Flip,
-  cyber: Cyber,
-}
 
 /**
  * Send view to SimpleAnalytics.
  *
  * @see https://docs.simpleanalytics.com/server-side-tracking
  */
-function sendView(request: VercelRequest) {
-  return http.post("https://queue.simpleanalyticscdn.com/post", {
-    json: {
+async function sendView(request: VercelRequest) {
+  const headers = new Headers()
+  headers.append("Content-Type", "application/json")
+  return await fetch("https://queue.simpleanalyticscdn.com/post", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
       url: "https://visits.github.marvin.digital/",
       ua: request.headers["user-agent"],
       referrer: request.headers["referer"] || "direct",
       tz: process.env.TZ || "",
-    },
+    }),
   })
 }
 
@@ -38,11 +36,10 @@ function sendView(request: VercelRequest) {
 async function getAnalytics(): Promise<SAJsonResponse> {
   const fields = [SAField.PAGEVIEWS]
   const baseUri = "https://simpleanalytics.com/visits.github.marvin.digital.json"
-  const response = await http.get<SAJsonResponse>(
+  const response = await fetch(
     baseUri + "?version=5&info=false&fields=" + fields.join(","),
-    { responseType: "json" }
   )
-  return response.body
+  return (await response.json()) as SAJsonResponse
 }
 
 /**
@@ -50,11 +47,6 @@ async function getAnalytics(): Promise<SAJsonResponse> {
  */
 export default async (request: VercelRequest, response: VercelResponse) => {
   const debug = "debug" in request.query
-
-  let theme = "flip"
-  if ("theme" in request.query) {
-    theme = String(request.query.theme)
-  }
 
   response.setHeader("Content-Type", "image/svg+xml")
   response.setHeader("Cache-Control", "public, max-age=0, stale-while-revalidate")
@@ -68,7 +60,7 @@ export default async (request: VercelRequest, response: VercelResponse) => {
     pageviews = analytics.pageviews
   }
 
-  const html = render(themes[theme]({ pageviews }))
+  const html = render(Classic({ pageviews })!)
 
   return response.status(200).send(html)
 }

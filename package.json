@@ -1,0 +1,11 @@
+{
+  "name": "muuvmuuv-workspace",
+  "private": true,
+  "scripts": {
+    "update-readme": "node ./tools/update-readme.js",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,html}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}

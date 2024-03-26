@@ -1,6 +1,6 @@
 # My name's Marvin
 
-I'm <age>26</age> years old and I've started programming at the age of 14. My dad bought
+I'm <age>27</age> years old and I've started programming at the age of 14. My dad bought
 me an XHTML(!) book with over 1000 pages and since then, I have created a passion for
 computers and especially for the internet.
 
