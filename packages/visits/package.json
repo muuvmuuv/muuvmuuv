@@ -9,6 +9,7 @@
 	"scripts": {
 		"start": "vercel dev",
 		"serve": "serve tests",
+		"vercel": "vercel",
 		"tsc": "tsc"
 	},
 	"dependencies": {
@@ -19,6 +20,7 @@
 		"preact-render-to-string": "^6.5.13"
 	},
 	"devDependencies": {
+		"@types/node": "^22.13.4",
 		"serve": "^14.2.4",
 		"typescript": "5.1.6"
 	},

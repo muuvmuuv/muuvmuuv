@@ -1,9 +1,9 @@
-import { type FunctionComponent, h } from 'preact'
+import type { FunctionComponent } from 'preact'
 
-import { numberToArray } from '../../helper/utils'
-import type { ClockProperties } from '../Clock'
-import { Block } from './Block'
-import { Defs } from './Defs'
+import { numberToArray } from '../../utils.js'
+import type { ClockProperties } from '../Clock.js'
+import { Block } from './Block.js'
+import { Defs } from './Defs.js'
 
 /**
  * Nice looking flip clock as canvas.

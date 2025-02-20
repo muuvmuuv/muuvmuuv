@@ -3,7 +3,6 @@
 	"compileOnSave": false,
 	"compilerOptions": {
 		"strict": true,
-		"outDir": "dist",
 		"jsx": "react-jsx",
 		"jsxImportSource": "preact",
 		"skipLibCheck": true,
@@ -12,10 +11,15 @@
 		"downlevelIteration": false,
 		"resolveJsonModule": true,
 		"target": "ES2022",
-		"module": "ES2022",
-		"moduleResolution": "node",
-		"lib": ["ES2022"]
+		"module": "ESNext",
+		"moduleResolution": "node16",
+		"lib": ["ES2022"],
+		"types": ["node"],
+		"paths": {
+			"@/components/*": ["./src/components/*"],
+			"@/libs/*": ["./src/libs/*"],
+			"@//*": ["./src/*"]
+		}
 	},
-	"include": ["./**/*.ts", "./**/*.tsx"],
-	"exclude": ["./.vercel/", "./node_modules/"]
+	"include": ["./api/**/*.ts", "./api/**/*.tsx", "./src/**/*.ts", "./src/**/*.tsx"]
 }

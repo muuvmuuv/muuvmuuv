@@ -1,4 +1,4 @@
-import { type ComponentChildren, type FunctionComponent, h } from 'preact'
+import type { FunctionComponent } from 'preact'
 
 export const Block: FunctionComponent<{
 	index: number

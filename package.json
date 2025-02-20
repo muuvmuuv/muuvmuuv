@@ -1,6 +1,7 @@
 {
 	"name": "muuvmuuv-workspace",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"update-readme": "node ./tools/update-readme.js",
 		"check": "pnpm biome check .",

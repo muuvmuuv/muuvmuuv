@@ -1,10 +1,13 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import fetch from 'node-fetch'
-import { h } from 'preact'
-import render from 'preact-render-to-string'
+import { type FunctionComponent, h } from 'preact'
+import { renderToString } from 'preact-render-to-string'
 
-import { Classic } from '../components/Classic/Classic'
-import { SAField, type SAJsonResponse } from '../helper/SimpleAnalytics'
+import { Classic } from '@/components/Classic/Classic.js'
+import type { ClockProperties } from '@/components/Clock.js'
+import { Cyber } from '@/components/Cyber/Cyber.js'
+import { Flip } from '@/components/Flip/Flip.js'
+import { SAField, type SAJsonResponse } from '@/libs/SimpleAnalytics.js'
 
 /**
  * Send view to SimpleAnalytics.
@@ -46,10 +49,18 @@ async function getAnalytics(): Promise<SAJsonResponse> {
  * Render and return SVG counter.
  */
 export default async (request: VercelRequest, response: VercelResponse) => {
-	const debug = 'debug' in request.query
-
 	response.setHeader('Content-Type', 'image/svg+xml')
 	response.setHeader('Cache-Control', 'public, max-age=0, stale-while-revalidate')
+
+	const debug = 'debug' in request.query
+
+	const themeName = 'theme' in request.query ? request.query.theme.toString() : 'classic'
+	const themeComponents: Record<string, FunctionComponent<ClockProperties>> = {
+		classic: Classic,
+		cyber: Cyber,
+		flip: Flip,
+	}
+	const ThemeComponent = themeComponents[themeName]
 
 	let pageviews = 1234567890
 
@@ -60,7 +71,7 @@ export default async (request: VercelRequest, response: VercelResponse) => {
 		pageviews = analytics.pageviews
 	}
 
-	const html = render(h(Classic, { pageviews }))
+	const html = renderToString(h(ThemeComponent, { pageviews }))
 
 	return response.status(200).send(html)
 }

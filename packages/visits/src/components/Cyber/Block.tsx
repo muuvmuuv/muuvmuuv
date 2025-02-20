@@ -1,6 +1,4 @@
-import { type FunctionComponent, h } from 'preact'
-
-import * as coords from './coords.json'
+import type { FunctionComponent } from 'preact'
 
 type Coords = Record<
 	string,
@@ -9,6 +7,69 @@ type Coords = Record<
 		y: number
 	}
 >
+
+const coords: Coords = {
+	'15': {
+		x: 168,
+		y: 300,
+	},
+	'14': {
+		x: 99,
+		y: 300,
+	},
+	'13': {
+		x: 30,
+		y: 300,
+	},
+	'12': {
+		x: 168,
+		y: 230,
+	},
+	'11': {
+		x: 99,
+		y: 230,
+	},
+	'10': {
+		x: 30,
+		y: 230,
+	},
+	'9': {
+		x: 168,
+		y: 160,
+	},
+	'8': {
+		x: 99,
+		y: 160,
+	},
+	'7': {
+		x: 30,
+		y: 160,
+	},
+	'6': {
+		x: 168,
+		y: 90,
+	},
+	'5': {
+		x: 99,
+		y: 90,
+	},
+	'4': {
+		x: 30,
+		y: 90,
+	},
+	'3': {
+		x: 168,
+		y: 20,
+	},
+	'2': {
+		x: 99,
+		y: 20,
+	},
+	'1': {
+		x: 30,
+		y: 20,
+	},
+}
 
 // 0 = dark; 1 = color
 const numbers: Record<number, number[]> = {
@@ -38,7 +99,7 @@ export const Block: FunctionComponent<{
 			</g>
 
 			{matrix.map((t, i) => {
-				const { x, y } = (coords as Coords)[i + 1]
+				const { x, y } = coords[i + 1]
 				const theme = t ? 'gradient-color' : 'gradient-dark'
 				return (
 					<rect
