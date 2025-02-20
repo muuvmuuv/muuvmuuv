@@ -1,20 +1,21 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "rootDir": "./",
-    "strict": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-    "skipLibCheck": true,
-    "downlevelIteration": false,
-    "resolveJsonModule": true,
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "lib": ["esnext"]
-  },
-  "include": ["./**/*.ts", "./**/*.tsx"],
-  "exclude": ["./.vercel/", "./node_modules/"]
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compileOnSave": false,
+	"compilerOptions": {
+		"strict": true,
+		"outDir": "dist",
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowSyntheticDefaultImports": true,
+		"downlevelIteration": false,
+		"resolveJsonModule": true,
+		"target": "ES2022",
+		"module": "ES2022",
+		"moduleResolution": "node",
+		"lib": ["ES2022"]
+	},
+	"include": ["./**/*.ts", "./**/*.tsx"],
+	"exclude": ["./.vercel/", "./node_modules/"]
 }

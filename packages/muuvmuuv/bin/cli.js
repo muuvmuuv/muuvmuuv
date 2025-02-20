@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import muuvmuuv from "muuvmuuv"
+import * as muuvmuuv from '../src'
 
 muuvmuuv.start()
 

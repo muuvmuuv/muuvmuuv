@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import muuvmuuv from "muuvmuuv"
+import muuvmuuv from 'muuvmuuv'
 
 muuvmuuv.start()
 

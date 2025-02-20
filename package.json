@@ -1,11 +1,13 @@
 {
-  "name": "muuvmuuv-workspace",
-  "private": true,
-  "scripts": {
-    "update-readme": "node ./tools/update-readme.js",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,html}\""
-  },
-  "devDependencies": {
-    "prettier": "^3.2.5"
-  }
+	"name": "muuvmuuv-workspace",
+	"private": true,
+	"scripts": {
+		"update-readme": "node ./tools/update-readme.js",
+		"check": "pnpm biome check .",
+		"format": "pnpm biome check --write ."
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"typescript": "5.1.6"
+	}
 }

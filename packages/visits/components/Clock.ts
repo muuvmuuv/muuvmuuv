@@ -1,4 +1,4 @@
 export interface ClockProperties {
-  pageviews: number
-  height?: number
+	pageviews: number
+	height?: number
 }

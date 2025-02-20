@@ -1,16 +1,16 @@
 {
-  "version": 2,
-  "routes": [
-    {
-      "src": "/image.svg",
-      "dest": "/api"
-    },
-    {
-      "src": "/(.*)",
-      "status": 301,
-      "headers": {
-        "Location": "/image.svg"
-      }
-    }
-  ]
+	"version": 2,
+	"routes": [
+		{
+			"src": "/image.svg",
+			"dest": "/api"
+		},
+		{
+			"src": "/(.*)",
+			"status": 301,
+			"headers": {
+				"Location": "/image.svg"
+			}
+		}
+	]
 }

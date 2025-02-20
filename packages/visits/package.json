@@ -1,24 +1,26 @@
 {
-  "name": "node-serverless-visits",
-  "version": "3.2.0",
-  "description": "Simple visit counter for your Markdown file with Vercel and SimpleAnalytics",
-  "license": "MIT",
-  "author": "Marvin Heilemann",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "start": "vercel dev",
-    "serve": "serve tests"
-  },
-  "dependencies": {
-    "@vercel/node": "~3.0.24",
-    "got": "^14.2.1",
-    "node-fetch": "^3.3.2",
-    "preact": "^10.20.1",
-    "preact-render-to-string": "^6.4.1"
-  },
-  "devDependencies": {
-    "serve": "^14.2.1",
-    "typescript": "~5.4.3"
-  }
+	"name": "serverless-visits",
+	"version": "3.3.0",
+	"description": "Simple visit counter for your Markdown file with Vercel and SimpleAnalytics",
+	"license": "MIT",
+	"author": "Marvin Heilemann",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"start": "vercel dev",
+		"serve": "serve tests",
+		"tsc": "tsc"
+	},
+	"dependencies": {
+		"@vercel/node": "^5.1.7",
+		"got": "^14.4.6",
+		"node-fetch": "^3.3.2",
+		"preact": "^10.26.2",
+		"preact-render-to-string": "^6.5.13"
+	},
+	"devDependencies": {
+		"serve": "^14.2.4",
+		"typescript": "5.1.6"
+	},
+	"packageManager": "pnpm@10.3.0"
 }
