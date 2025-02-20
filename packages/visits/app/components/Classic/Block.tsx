@@ -1,9 +1,14 @@
-import type { FunctionComponent } from 'preact'
+import type { JSX } from 'react'
 
-export const Block: FunctionComponent<{
+export const Block = ({
+	children,
+	index,
+	offset = 0,
+}: {
 	index: number
 	offset?: number
-}> = ({ children, index, offset = 0 }) => {
+	children: JSX.Element | number | string
+}) => {
 	return (
 		<g transform={`translate(${offset * index} 0)`}>
 			<g filter="url(#shadow)">

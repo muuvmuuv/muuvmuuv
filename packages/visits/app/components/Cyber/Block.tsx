@@ -1,5 +1,3 @@
-import type { FunctionComponent } from 'preact'
-
 type Coords = Record<
 	string,
 	{
@@ -85,11 +83,15 @@ const numbers: Record<number, number[]> = {
 	9: [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0],
 }
 
-export const Block: FunctionComponent<{
+export const Block = ({
+	blockNumber,
+	arrayIndex,
+	offset = 0,
+}: {
 	arrayIndex: number
 	blockNumber: number
 	offset?: number
-}> = ({ blockNumber, arrayIndex, offset = 0 }) => {
+}) => {
 	const matrix = numbers[blockNumber]
 
 	return (

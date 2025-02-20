@@ -1,11 +1,9 @@
-import type { FunctionComponent } from 'preact'
+import { numberToArray } from '../../utils'
+import type { ClockProperties } from '../Clock'
+import { Block } from './Block'
+import { Defs } from './Defs'
 
-import { numberToArray } from '../../utils.js'
-import type { ClockProperties } from '../Clock.js'
-import { Block } from './Block.js'
-import { Defs } from './Defs.js'
-
-export const Cyber: FunctionComponent<ClockProperties> = ({ pageviews }) => {
+export const Cyber = ({ pageviews }: ClockProperties) => {
 	const pageviewsNumbers = numberToArray(pageviews)
 
 	const blockOffset = 230
@@ -17,7 +15,6 @@ export const Cyber: FunctionComponent<ClockProperties> = ({ pageviews }) => {
 
 	return (
 		<svg
-			title="Total page visits"
 			aria-label={`This page has ${pageviewsNumbers} total visits`}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox={`0 0 ${width} ${baseHeight}`}

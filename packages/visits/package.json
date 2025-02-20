@@ -7,22 +7,23 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"start": "vercel dev",
-		"serve": "serve tests",
-		"vercel": "vercel",
-		"tsc": "tsc"
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"vercel": "vercel"
 	},
 	"dependencies": {
-		"@vercel/node": "^5.1.7",
-		"got": "^14.4.6",
+		"next": "15.1.7",
 		"node-fetch": "^3.3.2",
-		"preact": "^10.26.2",
-		"preact-render-to-string": "^6.5.13"
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
 		"@types/node": "^22.13.4",
-		"serve": "^14.2.4",
-		"typescript": "5.1.6"
+		"@types/react": "^19.0.10",
+		"@types/react-dom": "^19.0.4",
+		"typescript": "^5.7.3"
 	},
 	"packageManager": "pnpm@10.3.0"
 }

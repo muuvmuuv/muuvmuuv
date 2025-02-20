@@ -2,24 +2,31 @@
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"compileOnSave": false,
 	"compilerOptions": {
+		"baseUrl": ".",
 		"strict": true,
-		"jsx": "react-jsx",
-		"jsxImportSource": "preact",
 		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
-		"allowSyntheticDefaultImports": true,
-		"downlevelIteration": false,
+		"allowJs": true,
+		"noEmit": true,
+		"isolatedModules": true,
+		"incremental": true,
+		"jsx": "preserve",
+		"esModuleInterop": true,
 		"resolveJsonModule": true,
-		"target": "ES2022",
+		"target": "ES2017",
 		"module": "ESNext",
-		"moduleResolution": "node16",
-		"lib": ["ES2022"],
-		"types": ["node"],
+		"moduleResolution": "bundler",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
 		"paths": {
-			"@/components/*": ["./src/components/*"],
-			"@/libs/*": ["./src/libs/*"],
-			"@//*": ["./src/*"]
+			"@/components/*": ["src/components/*"],
+			"@/libs/*": ["src/libs/*"],
+			"@//*": ["src/*"]
 		}
 	},
-	"include": ["./api/**/*.ts", "./api/**/*.tsx", "./src/**/*.ts", "./src/**/*.tsx"]
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"exclude": ["node_modules"]
 }

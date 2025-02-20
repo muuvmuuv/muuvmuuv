@@ -1,15 +1,13 @@
-import type { FunctionComponent } from 'preact'
-
-import { Zero } from './numbers/0.js'
-import { One } from './numbers/1.js'
-import { Two } from './numbers/2.js'
-import { Three } from './numbers/3.js'
-import { Four } from './numbers/4.js'
-import { Five } from './numbers/5.js'
-import { Six } from './numbers/6.js'
-import { Seven } from './numbers/7.js'
-import { Eight } from './numbers/8.js'
-import { Nine } from './numbers/9.js'
+import { Zero } from './numbers/0'
+import { One } from './numbers/1'
+import { Two } from './numbers/2'
+import { Three } from './numbers/3'
+import { Four } from './numbers/4'
+import { Five } from './numbers/5'
+import { Six } from './numbers/6'
+import { Seven } from './numbers/7'
+import { Eight } from './numbers/8'
+import { Nine } from './numbers/9'
 
 const blocks = [
 	<Zero key="zero" />,
@@ -24,11 +22,15 @@ const blocks = [
 	<Nine key="nine" />,
 ]
 
-export const Block: FunctionComponent<{
+export const Block = ({
+	index,
+	offset,
+	number,
+}: {
 	index: number
 	offset: number
 	number: number
-}> = ({ index, offset, number }) => (
+}) => (
 	<g transform={`translate(${offset * index} 0)`}>
 		<path
 			fill="#333232"

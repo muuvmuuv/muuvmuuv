@@ -1,16 +1,14 @@
-import type { FunctionComponent } from 'preact'
-
-import { numberToArray } from '../../utils.js'
-import type { ClockProperties } from '../Clock.js'
-import { Block } from './Block.js'
-import { Defs } from './Defs.js'
+import { numberToArray } from '../../utils'
+import type { ClockProperties } from '../Clock'
+import { Block } from './Block'
+import { Defs } from './Defs'
 
 /**
  * Nice looking flip clock as canvas.
  *
  * @see https://pqina.nl/flip/
  */
-export const Flip: FunctionComponent<ClockProperties> = ({ height = 50, pageviews }) => {
+export const Flip = ({ height = 50, pageviews }: ClockProperties) => {
 	const pageviewsNumbers = numberToArray(pageviews)
 
 	const blockOffset = 50
@@ -22,7 +20,6 @@ export const Flip: FunctionComponent<ClockProperties> = ({ height = 50, pageview
 
 	return (
 		<svg
-			title="Total page visits"
 			aria-label={`This page has ${pageviews} total visits`}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox={`0 0 ${width} ${baseHeight}`}
