@@ -1,6 +1,6 @@
 {
 	"name": "marvin",
-	"version": "2.3.0",
+	"version": "3.0.0",
 	"description": "This package `marvin` tells something about me.",
 	"keywords": [
 		"cli",
