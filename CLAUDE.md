@@ -8,16 +8,19 @@ This is a personal monorepo containing multiple packages related to Marvin Heile
 
 ## Workspace Structure
 
-The monorepo contains four packages:
+The monorepo is organized into two main directories:
 
+**packages/** - Three publishable CLI packages:
 1. **marvin** - CLI package that displays info about Marvin (depends on muuvmuuv package)
 2. **marvinheilemann** - CLI package similar to marvin (depends on muuvmuuv package)
 3. **muuvmuuv** - Shared base package with common functionality, used by other CLI packages
-4. **visits** - Next.js serverless application that generates dynamic SVG visit counters for GitHub profiles using SimpleAnalytics
 
-### Visits Package Architecture
+**apps/** - Applications (private, not published):
+1. **visits** - Next.js serverless application that generates dynamic SVG visit counters for GitHub profiles using SimpleAnalytics
 
-The `packages/visits` is a Next.js application deployed to Vercel that:
+### Visits App Architecture
+
+The `apps/visits` is a Next.js application deployed to Vercel that:
 - Exposes a `/api/image.svg` route that returns dynamically generated SVG images
 - Tracks page views via SimpleAnalytics server-side API
 - Supports multiple themes (classic, cyber, flip) via query parameter `?theme=<name>`
@@ -43,10 +46,10 @@ pnpm format
 pnpm update-readme
 ```
 
-### Visits package (Next.js app):
+### Visits app (Next.js app):
 ```bash
-# Navigate to visits package
-cd packages/visits
+# Navigate to visits app
+cd apps/visits
 
 # Development server
 pnpm dev
@@ -84,8 +87,8 @@ pnpm start
 
 ## TypeScript Configuration
 
-The visits package uses TypeScript with strict mode enabled. The tsconfig includes:
-- Path aliases configured in `packages/visits/tsconfig.json`:
+The visits app uses TypeScript with strict mode enabled. The tsconfig includes:
+- Path aliases configured in `apps/visits/tsconfig.json`:
   - `@/components/*` → `src/components/*`
   - `@/libs/*` → `src/libs/*`
   - `@//*` → `src/*`
@@ -93,7 +96,7 @@ The visits package uses TypeScript with strict mode enabled. The tsconfig includ
 
 ## Development Dependencies
 
-When updating dependencies in the visits package, check React version compatibility:
+When updating dependencies in the visits app, check React version compatibility:
 - React version reference: https://github.com/facebook/react/blob/v19.2.0/package.json#L115
 - Keep TypeScript version aligned with React's requirements
 
@@ -103,11 +106,11 @@ The `tools/update-readme.js` script syncs the root README.md to the CLI packages
 
 ## Package Manager
 
-This repository uses pnpm. The visits package specifies `pnpm@10.20.0` in package.json.
+This repository uses pnpm. The visits app specifies `pnpm@10.20.0` in package.json.
 
 ## Publishing Packages
 
-The CLI packages (marvin, marvinheilemann, muuvmuuv) can be published to both NPM and GitHub Package Registry. The visits package is private and won't be published.
+The CLI packages (marvin, marvinheilemann, muuvmuuv) in the `packages/` directory can be published to both NPM and GitHub Package Registry. The visits app in `apps/` is private and won't be published.
 
 ### Package Metadata
 

@@ -47,7 +47,7 @@ jobs:
 
       - name: Publish to NPM
         if: ${{ github.event.inputs.target == 'npm' || github.event.inputs.target == 'both' || github.event_name == 'release' }}
-        run: pnpm publish:npm --provenance --access public
+        run: pnpm publish:npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
