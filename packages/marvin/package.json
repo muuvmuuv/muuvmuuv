@@ -2,11 +2,27 @@
 	"name": "marvin",
 	"version": "2.3.0",
 	"description": "This package `marvin` tells something about me.",
+	"keywords": [
+		"cli",
+		"profile",
+		"personal"
+	],
+	"homepage": "https://github.com/muuvmuuv/muuvmuuv#readme",
+	"bugs": {
+		"url": "https://github.com/muuvmuuv/muuvmuuv/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/muuvmuuv/muuvmuuv.git",
+		"directory": "packages/marvin"
+	},
+	"license": "MIT",
 	"author": "Marvin Heilemann",
 	"bin": "bin/cli.js",
 	"type": "module",
 	"scripts": {
-		"start": "node bin/cli.js"
+		"start": "node bin/cli.js",
+		"prepublishOnly": "pnpm check"
 	},
 	"dependencies": {
 		"muuvmuuv": "workspace:*"
@@ -14,5 +30,8 @@
 	"files": [
 		"README.md",
 		"bin/cli.js"
-	]
+	],
+	"publishConfig": {
+		"access": "public"
+	}
 }

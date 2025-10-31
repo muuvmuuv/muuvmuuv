@@ -2,16 +2,35 @@
 	"name": "muuvmuuv",
 	"version": "2.3.0",
 	"description": "This package `muuvmuuv` tells something about me.",
+	"keywords": [
+		"cli",
+		"profile",
+		"personal"
+	],
+	"homepage": "https://github.com/muuvmuuv/muuvmuuv#readme",
+	"bugs": {
+		"url": "https://github.com/muuvmuuv/muuvmuuv/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/muuvmuuv/muuvmuuv.git",
+		"directory": "packages/muuvmuuv"
+	},
+	"license": "MIT",
 	"author": "Marvin Heilemann",
 	"bin": "bin/cli.js",
 	"main": "src/index.js",
 	"type": "module",
 	"scripts": {
-		"start": "node bin/cli.js"
+		"start": "node bin/cli.js",
+		"prepublishOnly": "pnpm check"
 	},
 	"files": [
 		"README.md",
 		"bin/cli.js",
 		"src/"
-	]
+	],
+	"publishConfig": {
+		"access": "public"
+	}
 }
