@@ -37,5 +37,14 @@ jobs:
       - name: Run checks
         run: pnpm check
 
-      - name: Publish to NPM
-        run: ./publish.sh
+      - name: Publish muuvmuuv package
+        working-directory: packages/muuvmuuv
+        run: npm publish --provenance
+
+      - name: Publish marvin package
+        working-directory: packages/marvin
+        run: npm publish --provenance
+
+      - name: Publish marvinheilemann package
+        working-directory: packages/marvinheilemann
+        run: npm publish --provenance
