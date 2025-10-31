@@ -22,7 +22,7 @@
 	"type": "module",
 	"scripts": {
 		"start": "node bin/cli.js",
-		"prepublishOnly": "pnpm check"
+		"prepublishOnly": "pnpm biome check ."
 	},
 	"dependencies": {
 		"muuvmuuv": "workspace:*"

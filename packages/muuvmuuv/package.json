@@ -23,7 +23,7 @@
 	"type": "module",
 	"scripts": {
 		"start": "node bin/cli.js",
-		"prepublishOnly": "pnpm check"
+		"prepublishOnly": "pnpm biome check ."
 	},
 	"files": [
 		"README.md",
