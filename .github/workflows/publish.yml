@@ -41,9 +41,10 @@ jobs:
         working-directory: packages/muuvmuuv
         run: npm publish
 
-      - name: Publish marvin package
-        working-directory: packages/marvin
-        run: npm publish
+      # NOTE: I am not the owner sadly
+      # - name: Publish marvin package
+      #   working-directory: packages/marvin
+      #   run: npm publish
 
       - name: Publish marvinheilemann package
         working-directory: packages/marvinheilemann
