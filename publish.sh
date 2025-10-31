@@ -14,8 +14,10 @@ for package_dir in packages/*; do
 	echo "Publishing package: $package_name"
 	echo "---"
 
-	# Publish the package with provenance
-	pnpm --filter "$package_name" publish --provenance
+	# Navigate to package directory and publish with provenance
+	cd "$package_dir"
+	npm publish --provenance
+	cd ../..
 
 	echo "Successfully published $package_name"
 	echo ""
