@@ -5,7 +5,10 @@
 	"[markdown]": {
 		"editor.defaultFormatter": "vscode.markdown-language-features"
 	},
-	"[json][jsonc][json5]": {
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[jsonc]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[javascript][typescript]": {
