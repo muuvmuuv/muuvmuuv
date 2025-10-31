@@ -2,22 +2,11 @@ name: Publish Packages
 
 on:
   workflow_dispatch:
-    inputs:
-      target:
-        description: 'Publish target'
-        required: true
-        default: 'both'
-        type: choice
-        options:
-          - npm
-          - github
-          - both
   release:
     types: [published]
 
 permissions:
   contents: read
-  packages: write
   id-token: write  # Required for npm provenance and trusted publishing
 
 jobs:
@@ -46,19 +35,6 @@ jobs:
         run: pnpm check
 
       - name: Publish to NPM
-        if: ${{ github.event.inputs.target == 'npm' || github.event.inputs.target == 'both' || github.event_name == 'release' }}
-        run: pnpm publish:npm
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Configure GitHub Packages authentication
-        if: ${{ github.event.inputs.target == 'github' || github.event.inputs.target == 'both' || github.event_name == 'release' }}
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
-          echo "@muuvmuuv:registry=https://npm.pkg.github.com" >> ~/.npmrc
-
-      - name: Publish to GitHub Packages
-        if: ${{ github.event.inputs.target == 'github' || github.event.inputs.target == 'both' || github.event_name == 'release' }}
-        run: pnpm publish:github
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

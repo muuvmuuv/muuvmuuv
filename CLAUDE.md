@@ -110,7 +110,7 @@ This repository uses pnpm. The visits app specifies `pnpm@10.20.0` in package.js
 
 ## Publishing Packages
 
-The CLI packages (marvin, marvinheilemann, muuvmuuv) in the `packages/` directory can be published to both NPM and GitHub Package Registry. The visits app in `apps/` is private and won't be published.
+The CLI packages (marvin, marvinheilemann, muuvmuuv) in the `packages/` directory can be published to NPM. The visits app in `apps/` is private and won't be published.
 
 ### Package Metadata
 
@@ -126,39 +126,24 @@ All publishable packages include:
 All npm publishing includes provenance information for supply chain security.
 
 ```bash
-# Publish all packages to both NPM and GitHub Packages (runs in parallel)
-pnpm publish:all
-
-# Publish only to NPM (with provenance)
-pnpm publish:npm
-
-# Publish only to GitHub Packages
-pnpm publish:github
+# Publish all packages to NPM
+pnpm publish
 ```
 
 ### Manual Publishing
 
-To publish manually, you need to authenticate:
+To publish manually, you need to authenticate with NPM:
 
-**For NPM:**
 ```bash
 npm login
-pnpm publish:npm
-```
-
-**For GitHub Packages:**
-```bash
-# Create a personal access token with 'write:packages' scope
-# Then login:
-npm login --registry=https://npm.pkg.github.com
-pnpm publish:github
+pnpm publish
 ```
 
 ### Automated Publishing via GitHub Actions
 
-The repository includes a GitHub Actions workflow (`.github/workflows/publish.yml`) that can:
-- Be triggered manually via workflow_dispatch with choice of target (npm/github/both)
-- Automatically publish on GitHub releases
+The repository includes a GitHub Actions workflow (`.github/workflows/publish.yml`) that:
+- Can be triggered manually via workflow_dispatch
+- Automatically publishes on GitHub releases
 - Uses npm provenance for enhanced security and transparency
 
 #### Setup: NPM Trusted Publishers (Recommended)
@@ -191,14 +176,10 @@ If you prefer not to use trusted publishers, you can still use traditional token
 1. Create an NPM access token at https://www.npmjs.com/settings/YOUR_USERNAME/tokens
 2. Add it as `NPM_TOKEN` secret in GitHub repository settings
 
-**GitHub Packages Authentication:**
-- `GITHUB_TOKEN` is automatically provided for GitHub Packages publishing
-
 **To publish via GitHub Actions:**
 1. Go to Actions tab in GitHub
 2. Select "Publish Packages" workflow
 3. Click "Run workflow"
-4. Choose publishing target (npm, github, or both)
 
 ### Version Management
 
@@ -208,4 +189,4 @@ Version numbers are managed manually in each package's `package.json`. Before pu
 3. Run `pnpm check` to ensure code quality
 4. Commit the version changes
 5. Tag the release if desired
-6. Publish using one of the commands above
+6. Publish using `pnpm publish`
