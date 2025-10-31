@@ -11,5 +11,8 @@
 	"dependencies": {
 		"muuvmuuv": "workspace:*"
 	},
-	"files": ["README.md", "bin/cli.js"]
+	"files": [
+		"README.md",
+		"bin/cli.js"
+	]
 }

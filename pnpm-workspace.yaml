@@ -3,3 +3,9 @@ packages:
   - packages/marvinheilemann
   - packages/muuvmuuv
   - packages/visits
+
+ignoredBuiltDependencies:
+  - sharp
+
+onlyBuiltDependencies:
+  - '@biomejs/biome'

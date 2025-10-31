@@ -4,6 +4,6 @@ I've been born in 1996 and started programming at the age of 14. My dad bought m
 
 You can get in touch with me [on Twitter](https://twitter.com/muuvmuuv) and if you wanna play some [League of Legends](https://leagueoflegends.com/) with me add [my tag `muuvmuuv`](https://lolprofile.net/summoner/euw/muuvmuuv). I also play some Word of Warcraft in my free time or work on side projects.
 
-[![My page visits](https://visits.github.marvin.digital/image.svg?theme=flip)](https://simpleanalytics.com/visits.github.marvin.digital)
+[![My page visits](https://visits.github.marvin.digital/api/image.svg?theme=flip)](https://simpleanalytics.com/visits.github.marvin.digital)
 
 > This is a copy of the original readme: https://github.com/muuvmuuv/muuvmuuv

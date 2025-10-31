@@ -7,23 +7,21 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack",
+		"dev": "next dev",
 		"build": "next build",
-		"start": "next start",
-		"lint": "next lint",
+		"start": "vercel dev",
 		"vercel": "vercel"
 	},
 	"dependencies": {
-		"next": "15.1.7",
-		"node-fetch": "^3.3.2",
-		"react": "^19.0.0",
-		"react-dom": "^19.0.0"
+		"next": "16.0.1",
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0"
 	},
 	"devDependencies": {
-		"@types/node": "^22.13.4",
-		"@types/react": "^19.0.10",
-		"@types/react-dom": "^19.0.4",
-		"typescript": "^5.7.3"
+		"@types/node": "^24.9.2",
+		"@types/react": "^19.2.2",
+		"@types/react-dom": "^19.2.2",
+		"typescript": "^5.9.3"
 	},
-	"packageManager": "pnpm@10.3.0"
+	"packageManager": "pnpm@10.20.0"
 }

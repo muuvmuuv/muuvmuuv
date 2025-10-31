@@ -9,5 +9,9 @@
 	"scripts": {
 		"start": "node bin/cli.js"
 	},
-	"files": ["README.md", "bin/cli.js", "src/"]
+	"files": [
+		"README.md",
+		"bin/cli.js",
+		"src/"
+	]
 }

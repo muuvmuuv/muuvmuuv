@@ -1,4 +1,10 @@
-# README Ideas
+# Development
+
+## Updates
+
+- TypeScript version: https://github.com/facebook/react/blob/v19.2.0/package.json#L115
+
+## Ideas
 
 > https://dev.to/github/10-standout-github-profile-readmes-h2o
 

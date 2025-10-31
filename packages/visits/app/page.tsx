@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from './page.module.css'
 
 export default function Home() {
@@ -6,11 +7,29 @@ export default function Home() {
 			<main className={styles.main}>
 				<h2>Themes</h2>
 
-				<img alt="" src="/api/image.svg?debug=true&theme=classic" />
+				<Image
+					alt=""
+					src="/api/image.svg?debug=true&theme=classic"
+					width={400}
+					height={80}
+					loading="lazy"
+				/>
 				<hr />
-				<img alt="" src="/api/image.svg?debug=true&theme=cyber" />
+				<Image
+					alt=""
+					src="/api/image.svg?debug=true&theme=cyber"
+					width={400}
+					height={80}
+					loading="lazy"
+				/>
 				<hr />
-				<img alt="" src="/api/image.svg?debug=true&theme=flip" />
+				<Image
+					alt=""
+					src="/api/image.svg?debug=true&theme=flip"
+					width={400}
+					height={80}
+					loading="lazy"
+				/>
 			</main>
 		</div>
 	)

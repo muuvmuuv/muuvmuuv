@@ -1,6 +1,4 @@
-import fetch from 'node-fetch'
-
-import { type NextRequest, NextResponse, after } from 'next/server'
+import { after, type NextRequest, NextResponse } from 'next/server'
 import { Classic } from '../../components/Classic/Classic'
 import type { ClockProperties } from '../../components/Clock'
 import { Cyber } from '../../components/Cyber/Cyber'
