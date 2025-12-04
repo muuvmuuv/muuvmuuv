@@ -14,9 +14,6 @@ importers:
       '@release-it/bumper':
         specifier: ^7.0.5
         version: 7.0.5(release-it@19.0.6(@types/node@24.10.1))
-      '@release-it/keep-a-changelog':
-        specifier: ^7.0.0
-        version: 7.0.0(release-it@19.0.6(@types/node@24.10.1))
       release-it:
         specifier: ^19.0.6
         version: 19.0.6(@types/node@24.10.1)
@@ -529,12 +526,6 @@ packages:
     peerDependencies:
       release-it: '>=18.0.0 || >=19.0.0'
 
-  '@release-it/keep-a-changelog@7.0.0':
-    resolution: {integrity: sha512-POWxbrMpO/UjphgXku7LYL+BWyiCc0S4tprEMO1+iHSk/CXE8xs6VecfH9KJyQ9Ke3SY4VdHAbMQv/lmizr/lA==}
-    engines: {node: ^20.9.0 || >=22.0.0}
-    peerDependencies:
-      release-it: ^18.0.0 || ^19.0.0
-
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
@@ -721,10 +712,6 @@ packages:
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
-
-  detect-newline@4.0.1:
-    resolution: {integrity: sha512-qE3Veg1YXzGHQhlA6jzebZN2qVf6NX+A7m7qlhCGG30dJixrAQhYOsJjsnBjJkCSmuOPpCk30145fr8FV0bzog==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   dom-serializer@2.0.0:
     resolution: {integrity: sha512-wIkAryiqt/nV5EQKqQpo3SToSOV9J0DnbJqwK7Wv/Trc92zIAYZ4FlMu+JPFW1DfGFt81ZTCGgDEabffXeLyJg==}
@@ -1249,9 +1236,6 @@ packages:
     resolution: {integrity: sha512-UhDfHmA92YAlNnCfhmq0VeNL5bDbiZGg7sZ2IvPsXubGkiNa9EC+tUTsjBRsYUAz87btI6/1wf4XoVvQ3uRnmQ==}
     engines: {node: '>=18'}
 
-  string-template@1.0.0:
-    resolution: {integrity: sha512-SLqR3GBUXuoPP5MmYtD7ompvXiG87QjT6lzOszyXjTM86Uu7At7vNnt2xgyTLq5o9T4IxTYFyGxcULqpsmsfdg==}
-
   string-width@4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
     engines: {node: '>=8'}
@@ -1757,13 +1741,6 @@ snapshots:
       release-it: 19.0.6(@types/node@24.10.1)
       semver: 7.7.3
 
-  '@release-it/keep-a-changelog@7.0.0(release-it@19.0.6(@types/node@24.10.1))':
-    dependencies:
-      detect-newline: 4.0.1
-      release-it: 19.0.6(@types/node@24.10.1)
-      semver: 7.7.3
-      string-template: 1.0.0
-
   '@swc/helpers@0.5.15':
     dependencies:
       tslib: 2.8.1
@@ -1941,8 +1918,6 @@ snapshots:
 
   detect-libc@2.1.2:
     optional: true
-
-  detect-newline@4.0.1: {}
 
   dom-serializer@2.0.0:
     dependencies:
@@ -2504,8 +2479,6 @@ snapshots:
     optional: true
 
   stdin-discarder@0.2.2: {}
-
-  string-template@1.0.0: {}
 
   string-width@4.2.3:
     dependencies:

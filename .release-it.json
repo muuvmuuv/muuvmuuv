@@ -17,9 +17,6 @@
 	"plugins": {
 		"@release-it/bumper": {
 			"out": ["packages/*/package.json"]
-		},
-		"@release-it/keep-a-changelog": {
-			"filename": "CHANGELOG.md"
 		}
 	}
 }
