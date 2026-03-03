@@ -105,7 +105,7 @@ export const Block = ({
 				const theme = t ? 'gradient-color' : 'gradient-dark'
 				return (
 					<rect
-						key={`r${i}${1}`}
+						key={`r${x}${y}`}
 						fill={`url(#${theme})`}
 						height="68"
 						width="67"
