@@ -1,3 +1,5 @@
+import type { NextRequest } from 'next/server'
+
 export enum SAField {
 	PAGEVIEWS = 'pageviews',
 	VISITORS = 'visitors',
@@ -29,4 +31,39 @@ export interface SAJsonResponse {
 	timezone: string
 	pageviews: number
 	generated_in_ms: number
+}
+
+/**
+ * Send view to SimpleAnalytics.
+ *
+ * @see https://docs.simpleanalytics.com/server-side-tracking
+ */
+export async function sendView(request: NextRequest) {
+	return await fetch('https://queue.simpleanalyticscdn.com/post', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			url: 'https://visits.github.marvin.digital/',
+			ua: request.headers.get('user-agent'),
+			referrer:
+				request.headers.get('referer') || request.headers.get('referrer') || 'direct',
+			tz: process.env.TZ || '',
+		}),
+	})
+}
+
+/**
+ * Get current analytics stats from SimpleAnalytics.
+ *
+ * @see https://docs.simpleanalytics.com/api/stats#query-parameters
+ */
+export async function getAnalytics(): Promise<SAJsonResponse> {
+	const fields = [SAField.PAGEVIEWS]
+	const baseUri = 'https://simpleanalytics.com/visits.github.marvin.digital.json'
+	const response = await fetch(
+		`${baseUri}?version=5&info=false&fields=${fields.join(',')}`,
+	)
+	return (await response.json()) as SAJsonResponse
 }

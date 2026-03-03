@@ -1,44 +1,9 @@
+import { getAnalytics, sendView } from 'app/libs/SimpleAnalytics'
 import { after, type NextRequest, NextResponse } from 'next/server'
 import { Classic } from '../../components/Classic/Classic'
 import type { ClockProperties } from '../../components/Clock'
 import { Cyber } from '../../components/Cyber/Cyber'
 import { Flip } from '../../components/Flip/Flip'
-import { SAField, type SAJsonResponse } from '../../libs/SimpleAnalytics'
-
-/**
- * Send view to SimpleAnalytics.
- *
- * @see https://docs.simpleanalytics.com/server-side-tracking
- */
-async function sendView(request: NextRequest) {
-	return await fetch('https://queue.simpleanalyticscdn.com/post', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({
-			url: 'https://visits.github.marvin.digital/',
-			ua: request.headers.get('user-agent'),
-			referrer:
-				request.headers.get('referer') || request.headers.get('referrer') || 'direct',
-			tz: process.env.TZ || '',
-		}),
-	})
-}
-
-/**
- * Get current analytics stats from SimpleAnalytics.
- *
- * @see https://docs.simpleanalytics.com/api/stats#query-parameters
- */
-async function getAnalytics(): Promise<SAJsonResponse> {
-	const fields = [SAField.PAGEVIEWS]
-	const baseUri = 'https://simpleanalytics.com/visits.github.marvin.digital.json'
-	const response = await fetch(
-		`${baseUri}?version=5&info=false&fields=${fields.join(',')}`,
-	)
-	return (await response.json()) as SAJsonResponse
-}
 
 /**
  * Render and return SVG counter.
