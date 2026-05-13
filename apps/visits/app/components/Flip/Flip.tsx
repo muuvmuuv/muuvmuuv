@@ -8,7 +8,7 @@ import { Defs } from './Defs'
  *
  * @see https://pqina.nl/flip/
  */
-export const Flip = ({ height = 50, pageviews }: ClockProperties) => {
+export const Flip = ({ pageviews }: ClockProperties) => {
 	const pageviewsNumbers = numberToArray(pageviews)
 
 	const blockOffset = 50
@@ -23,7 +23,6 @@ export const Flip = ({ height = 50, pageviews }: ClockProperties) => {
 			aria-label={`This page has ${pageviews} total visits`}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox={`0 0 ${width} ${baseHeight}`}
-			height={height}
 			fill="none"
 			role="img"
 		>

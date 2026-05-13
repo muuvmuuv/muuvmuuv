@@ -14,7 +14,7 @@ const RADIUS = 20
  * own embossed groove, top/bottom flap gradients, metal hinges and a split-
  * shaded digit drawn on top. Ported from the Claude Design reference HTML.
  */
-export const Board = ({ height: renderHeight = 50, pageviews }: ClockProperties) => {
+export const Board = ({ pageviews }: ClockProperties) => {
 	const digits = numberToArray(pageviews)
 	const count = digits.length
 
@@ -27,7 +27,6 @@ export const Board = ({ height: renderHeight = 50, pageviews }: ClockProperties)
 			aria-label={`This page has ${pageviews} total visits`}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox={`0 0 ${totalW} ${totalH}`}
-			height={renderHeight}
 			fill="none"
 			role="img"
 		>

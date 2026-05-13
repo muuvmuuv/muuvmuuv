@@ -19,13 +19,17 @@ Set the following variables in the Vercel project (Production + Preview):
 
 Choose a theme with `?theme=<name>`
 
-| Name    | Preview                                                                                 |
-| ------- | --------------------------------------------------------------------------------------- |
-| classic | ![classic theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=classic) |
-| cyber   | ![cyber theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=cyber)     |
-| flip    | ![flip theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=flip)       |
-| board   | ![board theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=board)     |
-| lcd     | ![lcd theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=lcd)         |
+SVGs have no intrinsic dimensions — set `height` (or `width`) on the `<img>`
+tag to control the displayed size. Browsers preserve the aspect ratio from
+the SVG's `viewBox`.
+
+| Name    | Preview                                                                                              |
+| ------- | ---------------------------------------------------------------------------------------------------- |
+| classic | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=classic" height="60" alt=""> |
+| cyber   | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=cyber" height="60" alt="">   |
+| flip    | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=flip" height="60" alt="">    |
+| board   | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=board" height="60" alt="">   |
+| lcd     | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=lcd" height="60" alt="">     |
 
 ## Debug
 

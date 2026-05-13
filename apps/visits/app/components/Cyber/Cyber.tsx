@@ -18,7 +18,6 @@ export const Cyber = ({ pageviews }: ClockProperties) => {
 			aria-label={`This page has ${pageviewsNumbers} total visits`}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox={`0 0 ${width} ${baseHeight}`}
-			height="40"
 			fill="none"
 			role="img"
 		>

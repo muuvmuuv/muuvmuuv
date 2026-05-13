@@ -21,7 +21,7 @@ import {
  * dim, active segments glow cyan. Bezel auto-grows to fit the digit count;
  * digit scale is fixed. Ported from the Claude Design reference HTML.
  */
-export const Lcd = ({ height: renderHeight = 50, pageviews }: ClockProperties) => {
+export const Lcd = ({ pageviews }: ClockProperties) => {
 	const digits = numberToArray(pageviews)
 	const n = digits.length
 
@@ -50,7 +50,6 @@ export const Lcd = ({ height: renderHeight = 50, pageviews }: ClockProperties) =
 			aria-label={`This page has ${pageviews} total visits`}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox={`0 0 ${bezelW} ${BEZEL_H}`}
-			height={renderHeight}
 			fill="none"
 			role="img"
 		>
