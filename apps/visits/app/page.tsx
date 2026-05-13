@@ -9,6 +9,14 @@ export default function Home() {
 
 				<Image
 					alt=""
+					src="/api/image.svg?debug=true"
+					width={400}
+					height={80}
+					loading="lazy"
+				/>
+				<hr />
+				<Image
+					alt=""
 					src="/api/image.svg?debug=true&theme=classic"
 					width={400}
 					height={80}

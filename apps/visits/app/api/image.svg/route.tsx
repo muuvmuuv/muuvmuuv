@@ -21,14 +21,16 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 
 	const debug = request.url.includes('debug')
 
-	const themeName = urlParams.get('theme') || 'classic'
 	const themeComponents: Record<string, React.FC<ClockProperties>> = {
 		classic: Classic,
 		cyber: Cyber,
 		flip: Flip,
 		board: Board,
 	}
-	const ThemeComponent = themeComponents[themeName]
+	const themeNames = Object.keys(themeComponents)
+	const themeName =
+		urlParams.get('theme') || themeNames[Math.floor(Math.random() * themeNames.length)]
+	const ThemeComponent = themeComponents[themeName] || Classic
 
 	let pageviews = 1234567890
 
