@@ -30,6 +30,14 @@ export default function Home() {
 					height={80}
 					loading="lazy"
 				/>
+				<hr />
+				<Image
+					alt=""
+					src="/api/image.svg?debug=true&theme=board"
+					width={400}
+					height={80}
+					loading="lazy"
+				/>
 			</main>
 		</div>
 	)

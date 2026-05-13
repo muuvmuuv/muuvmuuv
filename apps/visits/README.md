@@ -24,6 +24,7 @@ Choose a theme with `?theme=<name>`
 | classic | ![classic theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=classic) |
 | cyber   | ![cyber theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=cyber)     |
 | flip    | ![flip theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=flip)       |
+| board   | ![board theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=board)     |
 
 ## Debug
 

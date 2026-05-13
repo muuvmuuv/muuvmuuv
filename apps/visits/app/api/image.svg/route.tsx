@@ -1,5 +1,6 @@
 import { after, type NextRequest, NextResponse } from 'next/server'
 
+import { Board } from '../../components/Board/Board'
 import { Classic } from '../../components/Classic/Classic'
 import type { ClockProperties } from '../../components/Clock'
 import { Cyber } from '../../components/Cyber/Cyber'
@@ -25,6 +26,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 		classic: Classic,
 		cyber: Cyber,
 		flip: Flip,
+		board: Board,
 	}
 	const ThemeComponent = themeComponents[themeName]
 
