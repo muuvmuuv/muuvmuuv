@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 
-const themes = ['default', 'tiles', 'mosaic', 'flip', 'board', 'lcd']
+const themes = ['default', 'tiles', 'mosaic', 'flip', 'board', 'lcd', 'nixie']
 
 export default function Home() {
 	return (

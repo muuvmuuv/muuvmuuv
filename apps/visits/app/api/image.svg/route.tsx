@@ -5,6 +5,7 @@ import type { ClockProperties } from '../../components/Clock'
 import { Flip } from '../../components/Flip/Flip'
 import { Lcd } from '../../components/Lcd/Lcd'
 import { Mosaic } from '../../components/Mosaic/Mosaic'
+import { Nixie } from '../../components/Nixie/Nixie'
 import { Tiles } from '../../components/Tiles/Tiles'
 import { getAnalytics, sendView } from '../../libs/Umami'
 
@@ -28,6 +29,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 		flip: Flip,
 		board: Board,
 		lcd: Lcd,
+		nixie: Nixie,
 	}
 	const themeNames = Object.keys(themeComponents)
 	const themeName =
