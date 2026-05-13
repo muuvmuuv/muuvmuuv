@@ -5,6 +5,7 @@ import { Classic } from '../../components/Classic/Classic'
 import type { ClockProperties } from '../../components/Clock'
 import { Cyber } from '../../components/Cyber/Cyber'
 import { Flip } from '../../components/Flip/Flip'
+import { Lcd } from '../../components/Lcd/Lcd'
 import { getAnalytics, sendView } from '../../libs/Umami'
 
 // Carried over from SimpleAnalytics before the 2026-05-13 migration to Umami.
@@ -26,6 +27,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 		cyber: Cyber,
 		flip: Flip,
 		board: Board,
+		lcd: Lcd,
 	}
 	const themeNames = Object.keys(themeComponents)
 	const themeName =

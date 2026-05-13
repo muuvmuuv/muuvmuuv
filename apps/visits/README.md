@@ -25,6 +25,7 @@ Choose a theme with `?theme=<name>`
 | cyber   | ![cyber theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=cyber)     |
 | flip    | ![flip theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=flip)       |
 | board   | ![board theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=board)     |
+| lcd     | ![lcd theme](https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=lcd)         |
 
 ## Debug
 
