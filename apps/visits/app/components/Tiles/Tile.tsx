@@ -25,26 +25,24 @@ export const Tile = ({ x, y, char }: { x: number; y: number; char: string }) => 
 				stroke-width="1"
 				filter="url(#tile-shadow)"
 			/>
-			<rect
-				x="2"
-				y="0.5"
-				width={TILE_W - 4}
-				height="1.5"
-				rx="0.75"
-				ry="0.75"
-				fill="#ffffff"
-				opacity="0.95"
-			/>
-			<rect
-				x="2"
-				y={TILE_H - 2}
-				width={TILE_W - 4}
-				height="1.5"
-				rx="0.75"
-				ry="0.75"
-				fill="#141e3c"
-				opacity="0.06"
-			/>
+			<g clip-path="url(#tile-clip)">
+				<rect
+					x="0"
+					y="0"
+					width={TILE_W}
+					height="1.5"
+					fill="#ffffff"
+					opacity="0.95"
+				/>
+				<rect
+					x="0"
+					y={TILE_H - 1.5}
+					width={TILE_W}
+					height="1.5"
+					fill="#141e3c"
+					opacity="0.06"
+				/>
+			</g>
 			<rect
 				x={(TILE_W - 34) / 2}
 				y="10"
