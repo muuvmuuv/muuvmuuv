@@ -1,11 +1,11 @@
 {
 	"name": "serverless-visits",
 	"version": "3.3.0",
+	"private": true,
 	"description": "Simple visit counter for your Markdown file with Vercel and SimpleAnalytics",
 	"license": "MIT",
 	"author": "Marvin Heilemann",
 	"type": "module",
-	"private": true,
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -14,11 +14,11 @@
 	},
 	"dependencies": {
 		"next": "^16.2.6",
-		"react": "^19.2.1",
-		"react-dom": "^19.2.1"
+		"react": "^19.2.6",
+		"react-dom": "^19.2.6"
 	},
 	"devDependencies": {
-		"@types/node": "^24.11.0",
+		"@types/node": "^24.12.4",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"typescript": "^5.9.3"

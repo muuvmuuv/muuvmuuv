@@ -1,9 +1,10 @@
-import { getAnalytics, sendView } from 'app/libs/SimpleAnalytics'
 import { after, type NextRequest, NextResponse } from 'next/server'
+
 import { Classic } from '../../components/Classic/Classic'
 import type { ClockProperties } from '../../components/Clock'
 import { Cyber } from '../../components/Cyber/Cyber'
 import { Flip } from '../../components/Flip/Flip'
+import { getAnalytics, sendView } from '../../libs/SimpleAnalytics'
 
 /**
  * Render and return SVG counter.

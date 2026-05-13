@@ -3,31 +3,36 @@
 		"editor.defaultFormatter": "vscode.html-language-features"
 	},
 	"[markdown]": {
-		"editor.defaultFormatter": "vscode.markdown-language-features"
+		"editor.defaultFormatter": "oxc.oxc-vscode"
 	},
 	"[json]": {
-		"editor.defaultFormatter": "biomejs.biome"
+		"editor.defaultFormatter": "oxc.oxc-vscode"
 	},
 	"[jsonc]": {
-		"editor.defaultFormatter": "biomejs.biome"
+		"editor.defaultFormatter": "oxc.oxc-vscode"
 	},
-	"[javascript][typescript]": {
-		"editor.defaultFormatter": "biomejs.biome",
+	"[javascript]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode",
 		"editor.codeActionsOnSave": {
-			"source.fixAll.eslint": "explicit",
-			"source.fixAll.biome": "explicit",
-			"source.organizeImports.biome": "explicit",
-			"source.action.useSortedKeys.biome": "explicit"
+			"source.fixAll.oxc": "explicit"
 		}
 	},
-	"[javascriptreact][typescriptreact]": {
-		"editor.defaultFormatter": "biomejs.biome",
+	"[typescript]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode",
 		"editor.codeActionsOnSave": {
-			"source.fixAll.eslint": "explicit",
-			"source.fixAll.biome": "explicit",
-			"source.organizeImports.biome": "explicit",
-			"source.action.useSortedKeys.biome": "explicit"
+			"source.fixAll.oxc": "explicit"
 		}
 	},
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.oxc": "explicit"
+		}
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.oxc": "explicit"
+		}
+	}
 }

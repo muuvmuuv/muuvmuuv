@@ -4,34 +4,34 @@
 	"description": "This package `marvin` tells something about me.",
 	"keywords": [
 		"cli",
-		"profile",
-		"personal"
+		"personal",
+		"profile"
 	],
 	"homepage": "https://github.com/muuvmuuv/muuvmuuv#readme",
 	"bugs": {
 		"url": "https://github.com/muuvmuuv/muuvmuuv/issues"
 	},
+	"license": "MIT",
+	"author": "Marvin Heilemann",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/muuvmuuv/muuvmuuv.git",
 		"directory": "packages/marvin"
 	},
-	"license": "MIT",
-	"author": "Marvin Heilemann",
 	"bin": "bin/cli.js",
-	"type": "module",
-	"scripts": {
-		"start": "node bin/cli.js",
-		"prepublishOnly": "pnpm biome check ."
-	},
-	"dependencies": {
-		"muuvmuuv": "workspace:*"
-	},
 	"files": [
 		"README.md",
 		"bin/cli.js"
 	],
+	"type": "module",
 	"publishConfig": {
 		"access": "public"
+	},
+	"scripts": {
+		"start": "node bin/cli.js",
+		"prepublishOnly": "pnpm oxlint && pnpm oxfmt --check"
+	},
+	"dependencies": {
+		"muuvmuuv": "workspace:*"
 	}
 }

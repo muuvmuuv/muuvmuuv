@@ -5,13 +5,14 @@
 	"type": "module",
 	"scripts": {
 		"update-readme": "node ./tools/update-readme.js",
-		"check": "pnpm biome check .",
-		"format": "pnpm biome check --write .",
+		"check": "oxlint && oxfmt --check",
+		"format": "oxlint --fix && oxfmt",
 		"release": "release-it"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.5",
 		"@release-it/bumper": "^7.0.5",
+		"oxfmt": "^0.49.0",
+		"oxlint": "^1.64.0",
 		"release-it": "^19.2.4",
 		"typescript": "^5.9.3"
 	}

@@ -2,7 +2,6 @@
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"compileOnSave": false,
 	"compilerOptions": {
-		"baseUrl": ".",
 		"strict": true,
 		"skipLibCheck": true,
 		"allowJs": true,
@@ -12,7 +11,7 @@
 		"jsx": "react-jsx",
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
-		"target": "ES2017",
+		"target": "ES2022",
 		"module": "ESNext",
 		"moduleResolution": "bundler",
 		"lib": ["ES2022", "DOM", "DOM.Iterable"],
@@ -22,17 +21,17 @@
 			}
 		],
 		"paths": {
-			"@/components/*": ["src/components/*"],
-			"@/libs/*": ["src/libs/*"],
-			"@//*": ["src/*"]
+			"@/components/*": ["./src/components/*"],
+			"@/libs/*": ["./src/libs/*"],
+			"@//*": ["./src/*"]
 		}
 	},
 	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
+		"./next-env.d.ts",
+		"./**/*.ts",
+		"./**/*.tsx",
 		".next/types/**/*.ts",
 		".next/dev/types/**/*.ts"
 	],
-	"exclude": ["node_modules"]
+	"exclude": ["./node_modules"]
 }

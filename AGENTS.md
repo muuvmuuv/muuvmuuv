@@ -11,16 +11,19 @@ This is a personal monorepo containing multiple packages related to Marvin Heile
 The monorepo is organized into two main directories:
 
 **packages/** - Three publishable CLI packages:
+
 1. **marvin** - CLI package that displays info about Marvin (depends on muuvmuuv package)
 2. **marvinheilemann** - CLI package similar to marvin (depends on muuvmuuv package)
 3. **muuvmuuv** - Shared base package with common functionality, used by other CLI packages
 
 **apps/** - Applications (private, not published):
+
 1. **visits** - Next.js serverless application that generates dynamic SVG visit counters for GitHub profiles using SimpleAnalytics
 
 ### Visits App Architecture
 
 The `apps/visits` is a Next.js application deployed to Vercel that:
+
 - Exposes a `/api/image.svg` route that returns dynamically generated SVG images
 - Tracks page views via SimpleAnalytics server-side API
 - Supports multiple themes (classic, cyber, flip) via query parameter `?theme=<name>`
@@ -32,14 +35,15 @@ The `apps/visits` is a Next.js application deployed to Vercel that:
 ## Common Commands
 
 ### Workspace-level commands (run from root):
+
 ```bash
 # Install dependencies
 pnpm install
 
-# Format and lint all packages with Biome
+# Lint and check formatting across the workspace (oxlint + oxfmt)
 pnpm check
 
-# Auto-fix formatting and linting issues
+# Auto-fix lint issues and format files
 pnpm format
 
 # Update README files across packages
@@ -47,6 +51,7 @@ pnpm update-readme
 ```
 
 ### Visits app (Next.js app):
+
 ```bash
 # Navigate to visits app
 cd apps/visits
@@ -65,6 +70,7 @@ pnpm vercel
 ```
 
 ### CLI packages (marvin, marvinheilemann, muuvmuuv):
+
 ```bash
 # Run any CLI package
 cd packages/<package-name>
@@ -73,13 +79,13 @@ pnpm start
 
 ## Code Style and Formatting
 
-- Uses Biome for formatting and linting (configured in `biome.json`)
+- Uses [oxlint](https://oxc.rs/docs/guide/usage/linter) for linting (`.oxlintrc.json`)
+  and [oxfmt](https://oxc.rs/docs/guide/usage/formatter) for formatting (`.oxfmtrc.json`)
+- Tabs, line width, and EOL come from `.editorconfig` (oxfmt reads it)
 - Formatting preferences:
   - Tabs for indentation (width: 2)
   - Single quotes for JavaScript strings
-  - Double quotes for JSX attributes
-  - Trailing commas everywhere
-  - Semicolons as needed (ASI-safe)
+  - No semicolons (ASI)
   - Line width: 90 characters
   - LF line endings
 - TypeScript is used for the visits package
@@ -88,6 +94,7 @@ pnpm start
 ## TypeScript Configuration
 
 The visits app uses TypeScript with strict mode enabled. The tsconfig includes:
+
 - Path aliases configured in `apps/visits/tsconfig.json`:
   - `@/components/*` → `src/components/*`
   - `@/libs/*` → `src/libs/*`
@@ -97,6 +104,7 @@ The visits app uses TypeScript with strict mode enabled. The tsconfig includes:
 ## Development Dependencies
 
 When updating dependencies in the visits app, check React version compatibility:
+
 - React version reference: https://github.com/facebook/react/blob/v19.2.0/package.json#L115
 - Keep TypeScript version aligned with React's requirements
 
@@ -115,6 +123,7 @@ The CLI packages (marvin, marvinheilemann, muuvmuuv) in the `packages/` director
 ### Package Metadata
 
 All publishable packages include:
+
 - MIT license
 - Repository information with monorepo directory paths
 - Homepage, bugs, and keywords
@@ -142,6 +151,7 @@ pnpm publish
 ### Automated Publishing via GitHub Actions
 
 The repository includes a GitHub Actions workflow (`.github/workflows/publish.yml`) that:
+
 - Can be triggered manually via workflow_dispatch
 - Automatically publishes on GitHub releases
 - Uses npm provenance for enhanced security and transparency
@@ -153,11 +163,13 @@ This repository is configured to use [npm trusted publishers](https://docs.npmjs
 **To set up trusted publishers on npm:**
 
 First, create the GitHub environment:
+
 1. Go to repository Settings → Environments
 2. Create a new environment named `production`
 3. (Optional) Add protection rules like required reviewers or wait timers
 
 Then configure npm trusted publishers:
+
 1. Log in to https://www.npmjs.com/
 2. For each package (marvin, marvinheilemann, muuvmuuv):
    - Go to package settings → Publishing access
@@ -173,10 +185,12 @@ Once configured, the workflow will automatically authenticate using OIDC tokens 
 #### Alternative: Using NPM_TOKEN
 
 If you prefer not to use trusted publishers, you can still use traditional token-based authentication:
+
 1. Create an NPM access token at https://www.npmjs.com/settings/YOUR_USERNAME/tokens
 2. Add it as `NPM_TOKEN` secret in GitHub repository settings
 
 **To publish via GitHub Actions:**
+
 1. Go to Actions tab in GitHub
 2. Select "Publish Packages" workflow
 3. Click "Run workflow"
@@ -184,6 +198,7 @@ If you prefer not to use trusted publishers, you can still use traditional token
 ### Version Management
 
 Version numbers are managed manually in each package's `package.json`. Before publishing:
+
 1. Update version numbers in the packages you want to publish
 2. Ensure workspace dependencies use `workspace:*` protocol (they will be resolved to actual versions during publish)
 3. Run `pnpm check` to ensure code quality
