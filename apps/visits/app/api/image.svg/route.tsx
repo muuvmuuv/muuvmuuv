@@ -7,11 +7,11 @@ import { Lcd } from '../../components/Lcd/Lcd'
 import { Mosaic } from '../../components/Mosaic/Mosaic'
 import { Nixie } from '../../components/Nixie/Nixie'
 import { Tiles } from '../../components/Tiles/Tiles'
-import { getAnalytics, sendView } from '../../libs/Umami'
+import { getAnalytics, sendView } from '../../libs/GoatCounter'
 
-// Carried over from SimpleAnalytics before the 2026-05-13 migration to Umami.
-// Umami Cloud can't backdate events, so the historical count is added here.
-const HISTORICAL_PAGEVIEWS = 400
+// Carried over from SimpleAnalytics. Neither Umami nor GoatCounter can
+// backdate events, so the historical count is added on top of the live total.
+const HISTORICAL_PAGEVIEWS = 463
 
 /**
  * Render and return SVG counter.

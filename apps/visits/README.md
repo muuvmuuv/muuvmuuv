@@ -1,16 +1,14 @@
 # Simple visit counter for your Markdown file
 
-For storing the data I use [Umami](https://umami.is/). No cookies required and DSGVO
-ready, so this can be implemented savely without any harm.
+For storing the data I use [GoatCounter](https://www.goatcounter.com/). No cookies
+required and DSGVO ready, so this can be implemented savely without any harm.
 
 ## Environment
 
 Set the following variables in the Vercel project (Production + Preview):
 
-- `UMAMI_WEBSITE_ID` — Website ID from the Umami Cloud dashboard
-- `UMAMI_API_KEY` — Umami Cloud API key, used to read the page view total
-- `UMAMI_HOST_URL` _(optional)_ — Tracking host, defaults to `https://cloud.umami.is`
-- `UMAMI_API_CLIENT_ENDPOINT` _(optional)_ — Stats API endpoint, defaults to `https://api.umami.is/v1`
+- `GOATCOUNTER_TOKEN` — API token from your GoatCounter site settings
+- `GOATCOUNTER_SITE_URL` _(optional)_ — Site URL, defaults to `https://muuvmuuv.goatcounter.com`
 
 > Figma SVG file can be found here:
 > https://www.figma.com/file/h8US2k7HOOBNmIAxxXA54T/SVG-Visits?node-id=6%3A3
@@ -33,7 +31,7 @@ the SVG's `viewBox`.
 
 ## Debug
 
-Debug the SVG with `?debug=true` to not send anything to Umami and show a test number.
+Debug the SVG with `?debug=true` to not send anything to GoatCounter and show a test number.
 
 ## Thanks to...
 

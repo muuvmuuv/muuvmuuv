@@ -2,7 +2,7 @@
 	"name": "serverless-visits",
 	"version": "3.3.0",
 	"private": true,
-	"description": "Simple visit counter for your Markdown file with Vercel and Umami",
+	"description": "Simple visit counter for your Markdown file with Vercel and GoatCounter",
 	"license": "MIT",
 	"author": "Marvin Heilemann",
 	"type": "module",
@@ -11,8 +11,6 @@
 		"build": "next build"
 	},
 	"dependencies": {
-		"@umami/api-client": "^0.80.0",
-		"@umami/node": "^0.4.0",
 		"next": "^16.2.6",
 		"react": "^19.2.6",
 		"react-dom": "^19.2.6"
