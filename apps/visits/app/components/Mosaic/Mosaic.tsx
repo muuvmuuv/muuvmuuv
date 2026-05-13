@@ -14,6 +14,10 @@ import {
 	STRIDE,
 } from './glyphs'
 
+const FLIP_COUNT = 12
+const FLIP_DUR_MIN_S = 0.9
+const FLIP_DUR_MAX_S = 3.4
+
 /**
  * Mosaic: 5x7 dot-matrix LED panel. Every cell is rendered — lit cells form
  * the digits in amber, off cells stay visible as the matrix backdrop. Ported
@@ -57,6 +61,20 @@ export const Mosaic = ({ pageviews }: ClockProperties) => {
 		}
 	}
 
+	const litIndices = cells.flatMap((cell, i) => (cell.on ? [i] : []))
+	const flipping = new Map<number, { dur: string; begin: string }>()
+	const picked = new Set<number>()
+	while (picked.size < Math.min(FLIP_COUNT, litIndices.length)) {
+		picked.add(litIndices[Math.floor(Math.random() * litIndices.length)])
+	}
+	for (const idx of picked) {
+		const dur = FLIP_DUR_MIN_S + Math.random() * (FLIP_DUR_MAX_S - FLIP_DUR_MIN_S)
+		flipping.set(idx, {
+			dur: `${dur.toFixed(2)}s`,
+			begin: `${(Math.random() * dur).toFixed(2)}s`,
+		})
+	}
+
 	return (
 		<svg
 			aria-label={`This page has ${pageviews} total visits`}
@@ -96,27 +114,81 @@ export const Mosaic = ({ pageviews }: ClockProperties) => {
 				ry="2"
 				fill="url(#mosaic-panel)"
 			/>
-			{cells.map(({ key, x, y, on }) => (
-				<g key={key}>
-					<rect
-						x={x}
-						y={y}
-						width={CELL}
-						height={CELL}
-						rx="1.2"
-						ry="1.2"
-						fill={on ? 'url(#mosaic-cell-on)' : 'url(#mosaic-cell-off)'}
-					/>
-					<rect
-						x={x + 1}
-						y={y + 0.6}
-						width={CELL - 2}
-						height="1"
-						fill={on ? '#fff3a8' : '#34373c'}
-						opacity={on ? '0.7' : '0.55'}
-					/>
-				</g>
-			))}
+			{cells.map(({ key, x, y, on }, i) => {
+				const flip = flipping.get(i)
+				if (flip) {
+					return (
+						<g key={key}>
+							<rect
+								x={x}
+								y={y}
+								width={CELL}
+								height={CELL}
+								rx="1.2"
+								ry="1.2"
+								fill="url(#mosaic-cell-off)"
+							/>
+							<rect
+								x={x + 1}
+								y={y + 0.6}
+								width={CELL - 2}
+								height="1"
+								fill="#34373c"
+								opacity="0.55"
+							/>
+							<g>
+								<rect
+									x={x}
+									y={y}
+									width={CELL}
+									height={CELL}
+									rx="1.2"
+									ry="1.2"
+									fill="url(#mosaic-cell-on)"
+								/>
+								<rect
+									x={x + 1}
+									y={y + 0.6}
+									width={CELL - 2}
+									height="1"
+									fill="#fff3a8"
+									opacity="0.7"
+								/>
+								<animate
+									attributeName="opacity"
+									values="1;0;1"
+									keyTimes="0;0.92;0.97"
+									dur={flip.dur}
+									begin={flip.begin}
+									repeatCount="indefinite"
+									calcMode="discrete"
+								/>
+							</g>
+						</g>
+					)
+				}
+				return (
+					<g key={key}>
+						<rect
+							x={x}
+							y={y}
+							width={CELL}
+							height={CELL}
+							rx="1.2"
+							ry="1.2"
+							fill={on ? 'url(#mosaic-cell-on)' : 'url(#mosaic-cell-off)'}
+						/>
+						<rect
+							x={x + 1}
+							y={y + 0.6}
+							width={CELL - 2}
+							height="1"
+							fill={on ? '#fff3a8' : '#34373c'}
+							opacity={on ? '0.7' : '0.55'}
+						/>
+					</g>
+				)
+			})}
 		</svg>
 	)
 }
