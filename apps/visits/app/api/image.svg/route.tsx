@@ -1,11 +1,11 @@
 import { after, type NextRequest, NextResponse } from 'next/server'
 
 import { Board } from '../../components/Board/Board'
-import { Classic } from '../../components/Classic/Classic'
 import type { ClockProperties } from '../../components/Clock'
 import { Cyber } from '../../components/Cyber/Cyber'
 import { Flip } from '../../components/Flip/Flip'
 import { Lcd } from '../../components/Lcd/Lcd'
+import { Tiles } from '../../components/Tiles/Tiles'
 import { getAnalytics, sendView } from '../../libs/Umami'
 
 // Carried over from SimpleAnalytics before the 2026-05-13 migration to Umami.
@@ -23,7 +23,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 	const debug = request.url.includes('debug')
 
 	const themeComponents: Record<string, React.FC<ClockProperties>> = {
-		classic: Classic,
+		tiles: Tiles,
 		cyber: Cyber,
 		flip: Flip,
 		board: Board,
@@ -32,7 +32,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 	const themeNames = Object.keys(themeComponents)
 	const themeName =
 		urlParams.get('theme') || themeNames[Math.floor(Math.random() * themeNames.length)]
-	const ThemeComponent = themeComponents[themeName] || Classic
+	const ThemeComponent = themeComponents[themeName] || Tiles
 
 	let pageviews = 1234567890
 

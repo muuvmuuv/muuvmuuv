@@ -25,7 +25,7 @@ the SVG's `viewBox`.
 
 | Name    | Preview                                                                                              |
 | ------- | ---------------------------------------------------------------------------------------------------- |
-| classic | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=classic" height="60" alt=""> |
+| tiles   | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=tiles" height="60" alt="">   |
 | cyber   | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=cyber" height="60" alt="">   |
 | flip    | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=flip" height="60" alt="">    |
 | board   | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=board" height="60" alt="">   |

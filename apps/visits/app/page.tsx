@@ -17,7 +17,7 @@ export default function Home() {
 				<hr />
 				<Image
 					alt=""
-					src="/api/image.svg?debug=true&theme=classic"
+					src="/api/image.svg?debug=true&theme=tiles"
 					width={400}
 					height={80}
 					loading="lazy"
