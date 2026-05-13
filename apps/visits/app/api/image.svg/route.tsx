@@ -2,9 +2,9 @@ import { after, type NextRequest, NextResponse } from 'next/server'
 
 import { Board } from '../../components/Board/Board'
 import type { ClockProperties } from '../../components/Clock'
-import { Cyber } from '../../components/Cyber/Cyber'
 import { Flip } from '../../components/Flip/Flip'
 import { Lcd } from '../../components/Lcd/Lcd'
+import { Mosaic } from '../../components/Mosaic/Mosaic'
 import { Tiles } from '../../components/Tiles/Tiles'
 import { getAnalytics, sendView } from '../../libs/Umami'
 
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 
 	const themeComponents: Record<string, React.FC<ClockProperties>> = {
 		tiles: Tiles,
-		cyber: Cyber,
+		mosaic: Mosaic,
 		flip: Flip,
 		board: Board,
 		lcd: Lcd,

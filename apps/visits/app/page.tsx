@@ -25,7 +25,7 @@ export default function Home() {
 				<hr />
 				<Image
 					alt=""
-					src="/api/image.svg?debug=true&theme=cyber"
+					src="/api/image.svg?debug=true&theme=mosaic"
 					width={400}
 					height={80}
 					loading="lazy"
