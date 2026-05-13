@@ -25,8 +25,9 @@ The monorepo is organized into two main directories:
 The `apps/visits` is a Next.js application deployed to Vercel that:
 
 - Exposes a `/api/image.svg` route that returns dynamically generated SVG images
-- Tracks page views via Umami Cloud (`/api/send`) and reads totals via the Umami stats API (`/api/websites/{id}/stats`)
-- Requires `UMAMI_WEBSITE_ID` and `UMAMI_KEY` env vars; optional `UMAMI_HOST` / `UMAMI_API_HOST` to override defaults
+- Tracks page views via `@umami/node` and reads totals via `@umami/api-client`
+- Requires `UMAMI_WEBSITE_ID` and `UMAMI_API_KEY` env vars; optional `UMAMI_HOST_URL` (tracking) and `UMAMI_API_CLIENT_ENDPOINT` (stats) to override defaults
+- `getAnalytics()` normalizes the response shape: the client's types expect `{ value, prev }` (legacy `/api/...` endpoint), but the v1 Cloud endpoint returns plain numbers
 - Supports multiple themes (classic, cyber, flip) via query parameter `?theme=<name>`
 - Has a debug mode (`?debug=true`) that shows test data without sending analytics
 - Uses Next.js App Router with route handlers in `app/api/image.svg/route.tsx`

@@ -8,11 +8,11 @@
 	"type": "module",
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build",
-		"start": "vercel dev",
-		"vercel": "vercel"
+		"build": "next build"
 	},
 	"dependencies": {
+		"@umami/api-client": "^0.80.0",
+		"@umami/node": "^0.4.0",
 		"next": "^16.2.6",
 		"react": "^19.2.6",
 		"react-dom": "^19.2.6"
@@ -22,6 +22,5 @@
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"typescript": "^5.9.3"
-	},
-	"packageManager": "pnpm@10.20.0"
+	}
 }

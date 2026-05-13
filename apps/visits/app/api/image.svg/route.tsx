@@ -6,6 +6,10 @@ import { Cyber } from '../../components/Cyber/Cyber'
 import { Flip } from '../../components/Flip/Flip'
 import { getAnalytics, sendView } from '../../libs/Umami'
 
+// Carried over from SimpleAnalytics before the 2026-05-13 migration to Umami.
+// Umami Cloud can't backdate events, so the historical count is added here.
+const HISTORICAL_PAGEVIEWS = 400
+
 /**
  * Render and return SVG counter.
  */
@@ -32,7 +36,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 		})
 
 		const analytics = await getAnalytics()
-		pageviews = analytics.pageviews.value
+		pageviews = analytics.pageviews + HISTORICAL_PAGEVIEWS
 	}
 
 	const html = renderToString(<ThemeComponent pageviews={pageviews} />)

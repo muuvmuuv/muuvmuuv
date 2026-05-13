@@ -60,3 +60,5 @@ jspm_packages/
 
 # Claude Code local settings
 .claude/
+.vercel
+.env*.local

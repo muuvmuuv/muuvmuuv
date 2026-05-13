@@ -8,9 +8,9 @@ ready, so this can be implemented savely without any harm.
 Set the following variables in the Vercel project (Production + Preview):
 
 - `UMAMI_WEBSITE_ID` — Website ID from the Umami Cloud dashboard
-- `UMAMI_KEY` — Umami Cloud API key, used to read the page view total
-- `UMAMI_HOST` _(optional)_ — Tracking host, defaults to `https://cloud.umami.is`
-- `UMAMI_API_HOST` _(optional)_ — Stats API host, defaults to `https://api.umami.is`
+- `UMAMI_API_KEY` — Umami Cloud API key, used to read the page view total
+- `UMAMI_HOST_URL` _(optional)_ — Tracking host, defaults to `https://cloud.umami.is`
+- `UMAMI_API_CLIENT_ENDPOINT` _(optional)_ — Stats API endpoint, defaults to `https://api.umami.is/v1`
 
 > Figma SVG file can be found here:
 > https://www.figma.com/file/h8US2k7HOOBNmIAxxXA54T/SVG-Visits?node-id=6%3A3
