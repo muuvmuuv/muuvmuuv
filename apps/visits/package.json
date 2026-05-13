@@ -2,7 +2,7 @@
 	"name": "serverless-visits",
 	"version": "3.3.0",
 	"private": true,
-	"description": "Simple visit counter for your Markdown file with Vercel and SimpleAnalytics",
+	"description": "Simple visit counter for your Markdown file with Vercel and Umami",
 	"license": "MIT",
 	"author": "Marvin Heilemann",
 	"type": "module",

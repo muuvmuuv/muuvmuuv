@@ -4,7 +4,7 @@ import { Classic } from '../../components/Classic/Classic'
 import type { ClockProperties } from '../../components/Clock'
 import { Cyber } from '../../components/Cyber/Cyber'
 import { Flip } from '../../components/Flip/Flip'
-import { getAnalytics, sendView } from '../../libs/SimpleAnalytics'
+import { getAnalytics, sendView } from '../../libs/Umami'
 
 /**
  * Render and return SVG counter.
@@ -32,7 +32,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 		})
 
 		const analytics = await getAnalytics()
-		pageviews = analytics.pageviews
+		pageviews = analytics.pageviews.value
 	}
 
 	const html = renderToString(<ThemeComponent pageviews={pageviews} />)

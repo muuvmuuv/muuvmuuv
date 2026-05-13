@@ -1,7 +1,16 @@
 # Simple visit counter for your Markdown file
 
-For storing the data I use [SimpleAnalytics](https://simpleanalytics.com/). No cookies
-required and DSGVO ready, so this can be implemented savely without any harm.
+For storing the data I use [Umami](https://umami.is/). No cookies required and DSGVO
+ready, so this can be implemented savely without any harm.
+
+## Environment
+
+Set the following variables in the Vercel project (Production + Preview):
+
+- `UMAMI_WEBSITE_ID` — Website ID from the Umami Cloud dashboard
+- `UMAMI_KEY` — Umami Cloud API key, used to read the page view total
+- `UMAMI_HOST` _(optional)_ — Tracking host, defaults to `https://cloud.umami.is`
+- `UMAMI_API_HOST` _(optional)_ — Stats API host, defaults to `https://api.umami.is`
 
 > Figma SVG file can be found here:
 > https://www.figma.com/file/h8US2k7HOOBNmIAxxXA54T/SVG-Visits?node-id=6%3A3
@@ -18,8 +27,7 @@ Choose a theme with `?theme=<name>`
 
 ## Debug
 
-Debug the SVG with `?debug=true` to not send anything to simpleanalytics and show a test
-number.
+Debug the SVG with `?debug=true` to not send anything to Umami and show a test number.
 
 ## Thanks to...
 
