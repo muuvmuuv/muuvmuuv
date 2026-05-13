@@ -1,59 +1,36 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 
+const themes = ['default', 'tiles', 'mosaic', 'flip', 'board', 'lcd']
+
 export default function Home() {
 	return (
 		<div className={styles.page}>
 			<main className={styles.main}>
-				<h2>Themes</h2>
+				<h1 className={styles.title}>Themes</h1>
 
-				<Image
-					alt=""
-					src="/api/image.svg?debug=true"
-					width={400}
-					height={80}
-					loading="lazy"
-				/>
-				<hr />
-				<Image
-					alt=""
-					src="/api/image.svg?debug=true&theme=tiles"
-					width={400}
-					height={80}
-					loading="lazy"
-				/>
-				<hr />
-				<Image
-					alt=""
-					src="/api/image.svg?debug=true&theme=mosaic"
-					width={400}
-					height={80}
-					loading="lazy"
-				/>
-				<hr />
-				<Image
-					alt=""
-					src="/api/image.svg?debug=true&theme=flip"
-					width={400}
-					height={80}
-					loading="lazy"
-				/>
-				<hr />
-				<Image
-					alt=""
-					src="/api/image.svg?debug=true&theme=board"
-					width={400}
-					height={80}
-					loading="lazy"
-				/>
-				<hr />
-				<Image
-					alt=""
-					src="/api/image.svg?debug=true&theme=lcd"
-					width={400}
-					height={80}
-					loading="lazy"
-				/>
+				<ul className={styles.list}>
+					{themes.map((theme) => {
+						const src =
+							theme === 'default'
+								? '/api/image.svg?debug=true'
+								: `/api/image.svg?debug=true&theme=${theme}`
+
+						return (
+							<li key={theme} className={styles.item}>
+								<h2 className={styles.label}>{theme}</h2>
+								<Image
+									alt={`${theme} theme preview`}
+									src={src}
+									width={800}
+									height={160}
+									loading="lazy"
+									className={styles.preview}
+								/>
+							</li>
+						)
+					})}
+				</ul>
 			</main>
 		</div>
 	)
