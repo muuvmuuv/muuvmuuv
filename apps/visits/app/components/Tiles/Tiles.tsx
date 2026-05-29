@@ -8,6 +8,9 @@ const TILE_H = 112
 const GAP = 14
 const PAD = 24
 
+const BLINK_DUR_MIN_S = 4
+const BLINK_DUR_MAX_S = 8
+
 /**
  * Paper-tile counter: rounded white tiles with layered drop shadows, a
  * registration bar near the top, and pressed-ink digits in indigo. Replaces
@@ -30,14 +33,22 @@ export const Tiles = ({ pageviews }: ClockProperties) => {
 			role="img"
 		>
 			<Defs />
-			{digits.map((d, i) => (
-				<Tile
-					key={`t${i}`}
-					x={PAD + i * (TILE_W + GAP)}
-					y={PAD}
-					char={d > 9 ? 'E' : String(d)}
-				/>
-			))}
+			{digits.map((d, i) => {
+				const dur =
+					BLINK_DUR_MIN_S + Math.random() * (BLINK_DUR_MAX_S - BLINK_DUR_MIN_S)
+				return (
+					<Tile
+						key={`t${i}`}
+						x={PAD + i * (TILE_W + GAP)}
+						y={PAD}
+						char={d > 9 ? 'E' : String(d)}
+						blink={{
+							dur: `${dur.toFixed(2)}s`,
+							begin: `${(Math.random() * 1.5).toFixed(2)}s`,
+						}}
+					/>
+				)
+			})}
 		</svg>
 	)
 }

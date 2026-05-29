@@ -6,9 +6,20 @@ const INK = '#3a4dff'
 const FONT_FAMILY =
 	"'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif"
 
-export const Tile = ({ x, y, char }: { x: number; y: number; char: string }) => {
+export const Tile = ({
+	x,
+	y,
+	char,
+	blink,
+}: {
+	x: number
+	y: number
+	char: string
+	blink?: { dur: string; begin: string }
+}) => {
 	const cx = TILE_W / 2
 	const cy = TILE_H / 2
+	const barX = (TILE_W - 34) / 2
 
 	return (
 		<g transform={`translate(${x} ${y})`}>
@@ -44,7 +55,7 @@ export const Tile = ({ x, y, char }: { x: number; y: number; char: string }) => 
 				/>
 			</g>
 			<rect
-				x={(TILE_W - 34) / 2}
+				x={barX}
 				y="10"
 				width="34"
 				height="4"
@@ -53,6 +64,31 @@ export const Tile = ({ x, y, char }: { x: number; y: number; char: string }) => 
 				fill="#141e3c"
 				opacity="0.08"
 			/>
+			{blink ? (
+				<g filter="url(#tile-status-glow)">
+					<rect
+						x={barX}
+						y="10"
+						width="34"
+						height="4"
+						rx="2"
+						ry="2"
+						fill={INK}
+						opacity="0"
+					>
+						<animate
+							attributeName="opacity"
+							values="0;0;1;0;0"
+							keyTimes="0;0.5;0.68;0.86;1"
+							dur={blink.dur}
+							begin={blink.begin}
+							repeatCount="indefinite"
+							calcMode="spline"
+							keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"
+						/>
+					</rect>
+				</g>
+			) : null}
 			<text
 				x={cx}
 				y={cy + 1}

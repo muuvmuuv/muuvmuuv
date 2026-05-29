@@ -7,6 +7,15 @@ export const Defs = () => (
 		<clipPath id="tile-clip">
 			<rect x="0" y="0" width="88" height="112" rx="18" ry="18" />
 		</clipPath>
+		<filter id="tile-status-glow" x="-400%" y="-400%" width="900%" height="900%">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur" />
+			<feFlood flood-color="#3a4dff" flood-opacity="0.9" result="color" />
+			<feComposite in="color" in2="blur" operator="in" result="glow" />
+			<feMerge>
+				<feMergeNode in="glow" />
+				<feMergeNode in="SourceGraphic" />
+			</feMerge>
+		</filter>
 		<filter id="tile-shadow" x="-10%" y="-10%" width="120%" height="125%">
 			<feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="b1" />
 			<feOffset in="b1" dx="0" dy="2" result="o1" />
