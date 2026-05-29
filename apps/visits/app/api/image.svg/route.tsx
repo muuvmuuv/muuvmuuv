@@ -31,9 +31,13 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 		lcd: Lcd,
 		nixie: Nixie,
 	}
-	const themeNames = Object.keys(themeComponents)
+	// Flip and Nixie are temporarily excluded from the random pool, but stay
+	// available when requested explicitly via ?theme=.
+	const randomThemes = Object.keys(themeComponents).filter(
+		(name) => name !== 'flip' && name !== 'nixie',
+	)
 	const themeName =
-		urlParams.get('theme') || themeNames[Math.floor(Math.random() * themeNames.length)]
+		urlParams.get('theme') || randomThemes[Math.floor(Math.random() * randomThemes.length)]
 	const ThemeComponent = themeComponents[themeName] || Tiles
 
 	let pageviews = 1234567890
