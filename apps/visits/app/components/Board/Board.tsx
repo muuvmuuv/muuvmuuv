@@ -18,6 +18,15 @@ export const Board = ({ pageviews }: ClockProperties) => {
 	const digits = numberToArray(pageviews)
 	const count = digits.length
 
+	// Ambient idle: once settled, one tile re-seats its flap every couple of
+	// seconds. A shuffled slot per tile spreads those flips over the cycle so the
+	// board keeps ticking over in a random-looking order, like a live board.
+	const slots = digits.map((_, i) => i)
+	for (let i = slots.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1))
+		;[slots[i], slots[j]] = [slots[j], slots[i]]
+	}
+
 	const innerW = count * TILE_W + (count - 1) * GAP
 	const totalW = innerW + PAD * 2
 	const totalH = TILE_H + PAD * 2
@@ -56,7 +65,15 @@ export const Board = ({ pageviews }: ClockProperties) => {
 				stroke-width="1"
 			/>
 			{digits.map((d, i) => (
-				<Block key={`b${i}`} index={i} x={PAD + i * (TILE_W + GAP)} y={PAD} number={d} />
+				<Block
+					key={`b${i}`}
+					index={i}
+					count={count}
+					ambientSlot={slots[i]}
+					x={PAD + i * (TILE_W + GAP)}
+					y={PAD}
+					number={d}
+				/>
 			))}
 		</svg>
 	)

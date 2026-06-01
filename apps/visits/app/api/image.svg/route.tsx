@@ -19,9 +19,9 @@ const HISTORICAL_PAGEVIEWS = 463
 export async function GET(request: NextRequest): Promise<NextResponse> {
 	const { renderToString } = await import('react-dom/server')
 
-	const urlParams = new URLSearchParams(request.url)
+	const urlParams = request.nextUrl.searchParams
 
-	const debug = request.url.includes('debug')
+	const debug = urlParams.has('debug')
 
 	const themeComponents: Record<string, React.FC<ClockProperties>> = {
 		tiles: Tiles,
@@ -37,7 +37,8 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 		(name) => name !== 'flip' && name !== 'nixie',
 	)
 	const themeName =
-		urlParams.get('theme') || randomThemes[Math.floor(Math.random() * randomThemes.length)]
+		urlParams.get('theme') ||
+		randomThemes[Math.floor(Math.random() * randomThemes.length)]
 	const ThemeComponent = themeComponents[themeName] || Tiles
 
 	let pageviews = 1234567890
