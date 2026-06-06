@@ -41,6 +41,10 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 		randomThemes[Math.floor(Math.random() * randomThemes.length)]
 	const ThemeComponent = themeComponents[themeName] || Tiles
 
+	// Every search param doubles as a theme option — each theme picks the
+	// keys it understands (e.g. ?theme=mosaic&color=ff3860).
+	const options = Object.fromEntries(urlParams)
+
 	let pageviews = 1234567890
 
 	if (!debug) {
@@ -52,7 +56,9 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 		pageviews = analytics.pageviews + HISTORICAL_PAGEVIEWS
 	}
 
-	const html = renderToString(<ThemeComponent pageviews={pageviews} />)
+	const html = renderToString(
+		<ThemeComponent pageviews={pageviews} options={options} />,
+	)
 
 	const response = new NextResponse(html, {
 		status: 200,

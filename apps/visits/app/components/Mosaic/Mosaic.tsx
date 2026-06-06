@@ -1,6 +1,6 @@
-import { numberToArray } from '../../utils'
+import { numberToArray, parseHexColor } from '../../utils'
 import type { ClockProperties } from '../Clock'
-import { Defs } from './Defs'
+import { AMBER, Defs, paletteFrom } from './Defs'
 import {
 	BEZEL,
 	CELL,
@@ -22,8 +22,13 @@ const FLIP_DUR_MAX_S = 3.4
  * Mosaic: 5x7 dot-matrix LED panel. Every cell is rendered — lit cells form
  * the digits in amber, off cells stay visible as the matrix backdrop. Ported
  * from the Claude Design reference HTML; replaces the old Cyber theme.
+ *
+ * Options: ?color=<hex> tints the lit cells (e.g. color=38c172, %23 for "#").
  */
-export const Mosaic = ({ pageviews }: ClockProperties) => {
+export const Mosaic = ({ pageviews, options }: ClockProperties) => {
+	const base = parseHexColor(options?.color)
+	const palette = base ? paletteFrom(base) : AMBER
+
 	const digits = numberToArray(pageviews)
 	const chars = digits.map((d) => (d > 9 || Number.isNaN(d) ? 'E' : String(d)))
 
@@ -83,7 +88,7 @@ export const Mosaic = ({ pageviews }: ClockProperties) => {
 			fill="none"
 			role="img"
 		>
-			<Defs />
+			<Defs palette={palette} />
 			<rect
 				x="0"
 				y="0"
@@ -151,7 +156,7 @@ export const Mosaic = ({ pageviews }: ClockProperties) => {
 									y={y + 0.6}
 									width={CELL - 2}
 									height="1"
-									fill="#fff3a8"
+									fill={palette.highlight}
 									opacity="0.7"
 								/>
 								<animate
@@ -183,7 +188,7 @@ export const Mosaic = ({ pageviews }: ClockProperties) => {
 							y={y + 0.6}
 							width={CELL - 2}
 							height="1"
-							fill={on ? '#fff3a8' : '#34373c'}
+							fill={on ? palette.highlight : '#34373c'}
 							opacity={on ? '0.7' : '0.55'}
 						/>
 					</g>

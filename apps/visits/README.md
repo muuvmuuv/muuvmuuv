@@ -29,6 +29,16 @@ the SVG's `viewBox`.
 | board   | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=board" height="60" alt="">   |
 | lcd     | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=lcd" height="60" alt="">     |
 
+### Theme options
+
+Themes can take extra URL params as options. Escape `#` in hex colors as
+`%23` (a raw `#` starts the URL fragment and cuts the param off) — or just
+leave it out, both work.
+
+| Theme  | Option  | Description                                                      |
+| ------ | ------- | ---------------------------------------------------------------- |
+| mosaic | `color` | Hex color of the lit cells, e.g. `?theme=mosaic&color=%2338c172` |
+
 ## Debug
 
 Debug the SVG with `?debug=true` to not send anything to GoatCounter and show a test number.
