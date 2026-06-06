@@ -47,3 +47,50 @@
 	height: auto;
 	display: block;
 }
+
+.options {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.option {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.8125rem;
+	font-weight: 500;
+}
+
+.option input[type='color'] {
+	inline-size: 2rem;
+	block-size: 1.5rem;
+	padding: 0;
+	border: 1px solid rgb(0 0 0 / 15%);
+	border-radius: 0.25rem;
+	background: none;
+	cursor: pointer;
+}
+
+.reset {
+	font-size: 0.75rem;
+	border: none;
+	background: none;
+	color: inherit;
+	text-decoration: underline;
+	opacity: 0.6;
+	cursor: pointer;
+	padding: 0;
+}
+
+.reset:hover {
+	opacity: 1;
+}
+
+.url {
+	font-size: 0.75rem;
+	opacity: 0.5;
+	word-break: break-all;
+}
