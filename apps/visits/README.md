@@ -21,13 +21,14 @@ SVGs have no intrinsic dimensions — set `height` (or `width`) on the `<img>`
 tag to control the displayed size. Browsers preserve the aspect ratio from
 the SVG's `viewBox`.
 
-| Name    | Preview                                                                                              |
-| ------- | ---------------------------------------------------------------------------------------------------- |
-| tiles   | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=tiles" height="60" alt="">   |
-| mosaic  | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=mosaic" height="60" alt=""> |
-| flip    | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=flip" height="60" alt="">    |
-| board   | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=board" height="60" alt="">   |
-| lcd     | <img src="https://visits.muuvmuuv.vercel.app/image.svg?debug=true&theme=lcd" height="60" alt="">     |
+| Name   | Preview                                                                                                    |
+| ------ | ---------------------------------------------------------------------------------------------------------- |
+| tiles  | <img src="https://visits.github.marvin.digital/api/image.svg?debug=true&theme=tiles" height="60" alt="">   |
+| mosaic | <img src="https://visits.github.marvin.digital/api/image.svg?debug=true&theme=mosaic" height="60" alt="">  |
+| flip   | <img src="https://visits.github.marvin.digital/api/image.svg?debug=true&theme=flip" height="60" alt="">    |
+| board  | <img src="https://visits.github.marvin.digital/api/image.svg?debug=true&theme=board" height="60" alt="">   |
+| lcd    | <img src="https://visits.github.marvin.digital/api/image.svg?debug=true&theme=lcd" height="60" alt="">     |
+| nixie  | <img src="https://visits.github.marvin.digital/api/image.svg?debug=true&theme=nixie" height="60" alt="">   |
 
 ### Theme options
 
@@ -46,7 +47,7 @@ Debug the SVG with `?debug=true` to not send anything to GoatCounter and show a 
 ## Thanks to...
 
 - [Webshocker](https://dribbble.com/shots/3505409-Counter) and his amazing work on
-  Dribbble with the `cyber` theme.
+  Dribbble, which inspired the old `cyber` theme (replaced by `mosaic`).
 - natemoo and his
   [now-playing](https://github.com/natemoo-re/natemoo-re/blob/master/api/now-playing.ts)
   SVG where I got the logic for Vercel serverless functions with react

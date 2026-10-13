@@ -18,21 +18,23 @@ The monorepo is organized into two main directories:
 
 **apps/** - Applications (private, not published):
 
-1. **visits** - Next.js serverless application that generates dynamic SVG visit counters for GitHub profiles using Umami
+1. **visits** - Next.js serverless application that generates dynamic SVG visit counters for GitHub profiles using GoatCounter
 
 ### Visits App Architecture
 
 The `apps/visits` is a Next.js application deployed to Vercel that:
 
 - Exposes a `/api/image.svg` route that returns dynamically generated SVG images
-- Tracks page views via `@umami/node` and reads totals via `@umami/api-client`
-- Requires `UMAMI_WEBSITE_ID` and `UMAMI_API_KEY` env vars; optional `UMAMI_HOST_URL` (tracking) and `UMAMI_API_CLIENT_ENDPOINT` (stats) to override defaults
-- `getAnalytics()` normalizes the response shape: the client's types expect `{ value, prev }` (legacy `/api/...` endpoint), but the v1 Cloud endpoint returns plain numbers
-- Supports multiple themes (classic, cyber, flip) via query parameter `?theme=<name>`
-- Has a debug mode (`?debug=true`) that shows test data without sending analytics
+- Tracks page views with GoatCounter in `app/libs/GoatCounter.ts`: `sendView()` posts a hit to `/api/v0/count` after the response, and `getAnalytics()` reads the lifetime total from `/api/v0/stats/total?start=2010-01-01T00:00:00Z`
+- Requires `GOATCOUNTER_TOKEN`; optional `GOATCOUNTER_SITE_URL` overrides the default `https://muuvmuuv.goatcounter.com`
+- Adds `HISTORICAL_PAGEVIEWS` (463) on top of the GoatCounter total, because earlier counts cannot be backdated
+- Supports themes `tiles`, `mosaic`, `flip`, `board`, `lcd`, and `nixie` via query parameter `?theme=<name>`
+- With no `theme` param, picks at random from `tiles`, `mosaic`, `board`, and `lcd`. `flip` and `nixie` render when `?theme=` names them. Any other name falls back to `tiles`
+- `mosaic` accepts a `color` option (hex, `#` optional, so `color=38c172` and `color=%2338c172` both work)
+- Has a debug mode whenever a `debug` query param is present (`?debug=true`). It shows the fixed count `1234567890` and skips the GoatCounter hit
 - Uses Next.js App Router with route handlers in `app/api/image.svg/route.tsx`
 - Renders React components to SVG using `react-dom/server`
-- Theme components are located in `app/components/` (Classic, Cyber, Flip)
+- Theme components are located in `app/components/` (`Tiles`, `Mosaic`, `Flip`, `Board`, `Lcd`, `Nixie`)
 
 ## Common Commands
 
@@ -50,6 +52,9 @@ pnpm format
 
 # Update README files across packages
 pnpm update-readme
+
+# Bump versions with release-it, then commit and tag
+pnpm release
 ```
 
 ### Visits app (Next.js app):
@@ -63,12 +68,6 @@ pnpm dev
 
 # Build for production
 pnpm build
-
-# Run Vercel dev server (simulates serverless environment)
-pnpm start
-
-# Deploy to Vercel
-pnpm vercel
 ```
 
 ### CLI packages (marvin, marvinheilemann, muuvmuuv):
@@ -116,7 +115,7 @@ The `tools/update-readme.js` script syncs the root README.md to the CLI packages
 
 ## Package Manager
 
-This repository uses pnpm. The visits app specifies `pnpm@10.20.0` in package.json.
+This repository uses pnpm. The root `package.json` pins it with `"packageManager": "pnpm@11.1.1"`. `apps/visits/package.json` has no `packageManager` field.
 
 ## Publishing Packages
 
@@ -129,17 +128,19 @@ All publishable packages include:
 - MIT license
 - Repository information with monorepo directory paths
 - Homepage, bugs, and keywords
-- `prepublishOnly` script that runs `pnpm check` before publishing
+- `prepublishOnly` script that runs `pnpm oxlint && pnpm oxfmt --check` before publishing
 - `publishConfig` with public access
 
 ### Publishing Commands
 
-All npm publishing includes provenance information for supply chain security.
+Publish from a package directory. The root package is private, so the publish runs inside `packages/<package-name>`.
 
 ```bash
-# Publish all packages to NPM
+cd packages/<package-name>
 pnpm publish
 ```
+
+`prepublishOnly` runs first (`pnpm oxlint && pnpm oxfmt --check`). The GitHub Actions workflow publishes with `npm publish` in the package directory, which runs that same hook. `pnpm publish` replaces `workspace:*` dependencies with the current version in the published tarball.
 
 ### Manual Publishing
 
@@ -147,6 +148,7 @@ To publish manually, you need to authenticate with NPM:
 
 ```bash
 npm login
+cd packages/<package-name>
 pnpm publish
 ```
 
@@ -155,8 +157,9 @@ pnpm publish
 The repository includes a GitHub Actions workflow (`.github/workflows/publish.yml`) that:
 
 - Can be triggered manually via workflow_dispatch
-- Automatically publishes on GitHub releases
-- Uses npm provenance for enhanced security and transparency
+- Also runs when a `v*` tag is pushed
+- Publishes `muuvmuuv`, then `marvinheilemann`, with `npm publish` in each package directory. The `marvin` publish step is commented out
+- Uses the `production` environment and npm provenance through OIDC (`id-token: write`)
 
 #### Setup: NPM Trusted Publishers (Recommended)
 
@@ -199,11 +202,15 @@ If you prefer not to use trusted publishers, you can still use traditional token
 
 ### Version Management
 
-Version numbers are managed manually in each package's `package.json`. Before publishing:
+`pnpm release` runs [release-it](https://github.com/release-it/release-it) (`.release-it.json`). [@release-it/bumper](https://github.com/release-it/bumper) writes the released version into `packages/*/package.json`.
 
-1. Update version numbers in the packages you want to publish
-2. Ensure workspace dependencies use `workspace:*` protocol (they will be resolved to actual versions during publish)
-3. Run `pnpm check` to ensure code quality
-4. Commit the version changes
-5. Tag the release if desired
-6. Publish using `pnpm publish`
+From a clean working tree on `main`, that command:
+
+1. Runs `pnpm check` (`hooks.before:init`)
+2. Bumps the version in the root `package.json`. `npm.publish` is false, so the npm step stops after the version bump
+3. Writes that version to every `packages/*/package.json`
+4. Commits `Release v${version}`, creates the tag `v${version}`, and pushes
+
+`github.release` is false. The pushed `v*` tag is what starts `.github/workflows/publish.yml`.
+
+`apps/visits/package.json` sits outside the bumper `out` glob, so `pnpm release` leaves its version alone. CLI packages depend on each other with `workspace:*`.
